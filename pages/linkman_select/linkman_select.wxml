@@ -1,0 +1,84 @@
+<view class="bg-white padding flex align-center text-black">
+  <image class="cu-avatar xl fs radius margin-right-sm" src="{{pro_detail.avatar}}"></image>
+  <view class="flex flex-direction">
+    <view class="margin-bottom-xs">{{pro_detail.title}}</view>
+    <view class="text-gray">
+      <text class="">{{pro_detail.start_time}}</text>
+      <text class="margin-left">{{pro_detail.start_city}}出发</text>
+      <text class="margin-left">{{pro_detail.trip_days}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="bg-white padding-lr text-black margin-top-sm">
+  <view class="flex align-center justify-between btn solid-bottom">
+    <text>联系人</text>
+    <button class="cu-btn sm line-theme" style="font-size:24rpx" catchtap="toLinkManSelect">选择联系人</button>
+  </view>
+  <view class="flex align-center justify-between btn solid-bottom">
+    <text>姓名<text class="text-red">*</text></text>
+    <input class="form-input"  placeholder="必填，用于供应商与你联系"></input>
+  </view>
+  <view class="flex align-center justify-between btn">
+    <text>手机号<text class="text-red">*</text></text>
+    <input class="form-input" placeholder="必填，用于供应商与你联系"></input>
+  </view>
+</view>
+
+<view class="bg-white padding-lr text-black margin-top-sm">
+  <view class="flex align-center justify-between btn solid-bottom">
+    <text>出行人</text>
+    <button class="cu-btn sm line-theme" style="font-size:24rpx" catchtap="toLinkManSelect">选择出行人</button>
+  </view>
+  <view class="flex align-center justify-between btn solid-bottom">
+    <text>成人1<text class="text-red">*</text></text>
+    <input class="form-input" placeholder="请务必保证所填项与出游证件保持一致"></input>
+  </view>
+  <view class="flex align-center justify-between btn">
+    <text>大童1<text class="text-red">*</text></text>
+    <input class="form-input" placeholder="请务必保证所填项与出游证件保持一致"></input>
+  </view>
+  <view class="flex align-center justify-between btn">
+    <text>小童1<text class="text-red">*</text></text>
+    <input class="form-input" placeholder="请务必保证所填项与出游证件保持一致"></input>
+  </view>
+</view>
+
+<view class="padding-lr margin-top flex">
+  <checkbox class="margin-right-sm orange"></checkbox>
+  <view class="flex flex-direction" style="text-align:justify">
+    <view>我已阅读并理解及接受本行程中所列的全部内容: 本平台所显示的行程内容为即为旅游合同内容，由供应商（旅行社）按旅游法规定填写并承担相应权责，具备与纸质旅游合同一致的同等法律效力。</view>
+    <text class="text-gray margin-top-xs">如需纸质合同或发票，请下单成功后，在"我的"-"合同发票"中填写相关内容</text>
+  </view>
+</view>
+
+<view class="bto_bar bg-white flex align-center justify-between padding-sm">
+  <view>
+    总价
+    <text class="text-price text-orange text-lg text-bold">3460</text>
+    <text class="margin-left text-theme" style="border-bottom:1rpx solid #7377FF"
+    bindtap="showModal" data-target="Image">费用明细</text>
+  </view>
+  <button class="cu-btn round bg-orange" style="height:78rpx;width:360rpx">立即预订 </button>
+</view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}" bindtap='hideModal' 
+style="background:rgba(0, 0, 0, 0.1);">
+  <view class="cu-dialog bg-white" catchtap>
+    <view class="cu-bar justify-between bg-white text-black solid-bottom">
+      <text class="action text-black text-bold">价格说明</text>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close'></text>
+      </view>
+    </view>
+
+    <view class="bg-white padding  text-left">
+      <view class="salary_text" >成人价：256（供应商200+服务费32*2天数+保险3*2天数=团费256）</view>
+      <view class="salary_text margin-top-sm">中童： 156（供应商100+服务费32*2天数+保险3*2天数=团费156）</view>
+      <view class="salary_text margin-top-sm">小童：106（供应商50+服务费32*2天数+保险3*2天数=团费156）</view>
+      <view class="salary_text margin-top-sm">单房差：500</view>
+    </view>
+
+    <view class="text-red padding-lr padding-bottom-lg text-left">备注说明：您已选择一份单房差，如若旅行途中产生的单房差价，直接支付给导游即可</view>
+  </view>
+</view>

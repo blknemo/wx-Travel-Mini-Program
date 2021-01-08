@@ -1,0 +1,86 @@
+<view class="search_tab">
+  <span 
+    wx:for="{{tabBars}}" 
+    wx:key="{{index}}" 
+    class="{{cur_tab == index?'active_tab':''}}" 
+    data-hi="{{index}}" 
+    bindtap="switchTab"
+  >
+    {{item}}
+  </span>
+</view>
+
+<scroll-view hidden="{{!(cur_tab==0)}}" class="box">
+  <view class="tab_card">
+    <navigator url="/pages/add_passenger/add_passenger?cur_tab=1&type=1" hover-class="none">
+      <view class="tab_card_item">
+        <image class="icon mb10" src="/public/imgs/apply.png"></image>
+        <text>新增常用旅客</text>
+      </view>
+    </navigator>
+    <view class="tab_card_item">
+      <image class="icon mb10" src="/public/imgs/saomiao.png"></image>
+      <text>对着证件扫一扫</text>
+    </view>
+  </view>
+  <view class="passengerList">
+    <view wx:if="{{passengerList.length>0}}">
+      <view class="p_item" wx:for="{{passengerList}}" wx:key="{{item.id}}">
+          <navigator url="/pages/add_passenger/add_passenger?cur_tab=1&type=2&id={{item.id}}" hover-class="none">
+            <view class="p_item_top">
+              <text class="name">{{item.name}}</text>
+              <text wx:if="{{item.is_user}}" class="tag">本人</text>
+            </view>
+            <view class="mobile">手机号码{{num.mobile_hide(item.mobile)}}</view>
+            <view class="id_card">身份证{{num.id_card_hide(item.id_card)}}</view>
+          </navigator>
+          <image class="del_icon" src="/public/imgs/del.png" catchtap="handelDel" data-type="1" data-id="{{item.id}}"></image>
+      </view>
+    </view>
+    <view wx:else class="noData">
+      <image class="no_data_img" src="/public/imgs/noData.png"></image>
+      <text>暂无常用旅客，赶快添加吧!</text>
+    </view>
+  </view>
+</scroll-view>
+
+<scroll-view hidden="{{!(cur_tab==1)}}" class="box">
+  <navigator url="/pages/add_passenger/add_passenger?cur_tab=2&type=1" hover-class="none">
+    <view class="tab_card_sl">
+        <image class="icon mr10" src="/public/imgs/apply.png"></image>
+        <text>新增联系人</text>
+    </view>
+  </navigator>
+  <view class="passengerList">
+    <view wx:if="{{passengerList.length>0}}">
+      <view class="p_item" wx:for="{{linkManList}}" wx:key="{{item.id}}">
+          <navigator url="/pages/add_passenger/add_passenger?cur_tab=2&type=2&id={{item.id}}" hover-class="none">
+              <view class="p_item_top">
+                <text class="name">{{item.name}}</text>
+                <text wx:if="{{item.is_init}}" class="tag">默认</text>
+              </view>
+              <text class="mobile">手机号码{{num.mobile_hide(item.mobile)}}</text>
+          </navigator>
+          <image class="del_icon" src="/public/imgs/del.png" catchtap="handelDel" data-type="2" data-id="{{item.id}}"></image>
+      </view>
+    </view>
+    <view wx:else class="noData">
+      <image class="no_data_img" src="/public/imgs/noData.png"></image>
+      <text>暂无联系人，赶快添加吧!</text>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 证件号码隐藏显示 -->
+<wxs module="num">
+  var mobileHide = function(array){
+        return array.substring(0, 3) + '****' + array.substring(7);
+  }
+  var id_card_hide = function(array){
+        return array.substring(0, 2) + '****' + array.substring(16);
+  }
+  module.exports={
+    mobile_hide:mobileHide,
+    id_card_hide:id_card_hide
+  }
+</wxs>

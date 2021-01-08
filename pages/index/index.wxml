@@ -1,0 +1,28 @@
+<image class="logo" src="/public/imgs/logo.png"></image>
+<view class="header padding-tb">
+  <block wx:for="{{modules}}" wx:key="{{index}}">
+    <navigator url="{{item.url}}" hover-class="none">
+      <view class="item" >
+          <view class="module {{item.bg}}"><image class="module_img " src="{{item.icon}}"></image></view>
+          <text>{{item.name}}</text>
+      </view>
+    </navigator>
+  </block>
+</view>
+<view class="features">
+  <text class="feature_text">旅游资讯</text>
+  <swiper class="feature_swiper"  vertical="true" autoplay="{{true}}" circular="true" interval="5000">
+    <swiper-item class="swiper_item" wx:for="{{features}}" wx:key="{{index}}">
+      {{item}}
+    </swiper-item>
+  </swiper>
+  <view class="feature_detail">详情>></view>
+</view>
+<view class="spots">
+  <view class="text-init text-xl text-bold" style="text-align:center">平台特色</view>
+  <!-- <image class="title_img" src="/public/imgs/spot.jpg"></image> -->
+  <view  class="spot" wx:for="{{spots}}">
+    <view id="pointer" class="sign">{{item.name}}</view>
+    <view class="content">{{item.content}}</view>
+  </view>
+</view>

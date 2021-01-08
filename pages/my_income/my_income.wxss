@@ -1,0 +1,8 @@
+.bg{
+  background: linear-gradient(to Bottom,  #7377FF,#A279FD);
+}
+.cu-tag.df {
+  font-size: 26rpx;
+  padding: 0rpx 34rpx;
+  height: 56rpx;
+}

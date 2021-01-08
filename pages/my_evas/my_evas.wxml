@@ -1,0 +1,77 @@
+<view class="padding-sm">
+  <view class="flex flex-direction bg-white  margin-bottom-sm radius" wx:for="{{evas}}">
+
+    <view class="flex align-center justify-between padding-lr-sm padding-top-sm">
+      <text class="text-bold ">
+        <text class="icon-shop margin-right-xs text=gray"></text>
+        <text class="text-init">{{item.provider}}</text>
+      </text>
+      <view class="flex justify-end text-lg padding-lr-sm ">
+        <text class="text-sm">共2人出行合计：</text><text class="text-price text-red">3200</text>
+      </view>
+    </view>
+
+    <view class="flex padding-sm solid-bottom">
+      <image class="avatar margin-right-sm" src="{{item.avatar}}"></image>
+      <view class=" flex flex-direction justify-between" style="width:calc(100% - 140rpx)">
+        <view class="text-init text-df text-cut">{{item.title}}</view>
+        <view class="text-gray text-sm">
+          <text class="right_xian">{{item.days}}</text>
+          <text class="margin-lr right_xian">{{item.traffic}}</text>
+          <text class="">{{item.start_time}}出发</text>
+        </view>
+        <view class="text-gray text-sm">下单时间：{{item.take_order_time}}</view>
+      </view>
+    </view>
+
+    <view class="">
+
+      <view wx:for="{{item.eva}}" class="padding-lr padding-bottom margin-bottom-xs bg-white">
+
+        <view class="padding-tb-sm flex align-center justify-between">
+
+          <view class="flex align-center">
+            <image class="cu-avatar round margin-right-sm" src="{{item.user_avatar}}"></image>
+            <view class="flex flex-direction justify-center">
+              <text>{{item.pb_user}}</text>
+              <text class="text-gray">{{item.pb_time}}</text>
+            </view>
+          </view>
+
+          <view class="flex flex-direction justify-center text-orange">
+            <text class="text-right">{{item.score}}分</text>
+            <text>{{item.eva}}</text>
+          </view>
+
+        </view>
+
+        <view class="margin-top-xs text-black">
+          <view class="margin-bottom-sm">
+            <text class="margin-right">行程安排：<text class="text-orange">{{item.trip_eva}}</text></text>
+            <text>导游服务：<text class="text-orange">{{item.guide_eva}}</text></text>
+          </view>
+          <view class="margin-bottom-sm">
+            <text class="margin-right">住宿体验：<text class="text-orange">{{item.stay_eva}}</text></text>
+            <text>餐食质量：<text class="text-orange">{{item.meal_eva}}</text></text>
+          </view>
+          <view class="margin-bottom-sm">
+            <text class="margin-right">景区质量：<text class="text-orange">{{item.scenery_eva}}</text></text>
+            <text>旅游交通：<text class="text-orange">{{item.traffic_eva}}</text></text>
+          </view>
+        </view>
+
+        <view class="text-black margin-tb">
+          {{item.comment_text}}
+        </view>
+
+        <view class="flex felx-wrap">
+          <image class="margin-right-xs"  wx:for="{{item.comment_imgs}}" wx:for-item="img" src="{{img}}"
+          style="height:160rpx;width:160rpx">
+          </image>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+</view>

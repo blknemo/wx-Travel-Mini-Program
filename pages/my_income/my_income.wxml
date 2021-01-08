@@ -1,0 +1,46 @@
+<view class="padding bg">
+  <view class=" bg-white radius padding-tb-lg padding-bottom-sm">
+    <view class="flex flex-direction align-center justify-center">
+        <text class="text-sm text-init margin-bottom-sm">
+          总收益(元)<text class="icon-questionfill text-gray margin-left-xs"></text>
+        </text>
+        <text class="text-init text-xxl text-bold">318.96</text>
+        <view class="cu-tag df bg-gray round  margin-top-sm margin-bottom-xl">
+          <text class="text-sm">昨日收益<text class="text-red text-lg" style="margin:0 7rpx">3.24</text>元</text>
+        </view>
+    </view>
+    <view class="flex justify-between">
+      <view class="flex flex-direction align-center justify-center" style="width:48%">
+        <text class="text-sm text-gray margin-bottom-sm">一级会员(个)</text>
+        <text class="text-init text-lg ">6</text>
+      </view>
+      <view class="flex flex-direction align-center justify-center" style="width:48%">
+        <text class="text-sm text-gray margin-bottom-sm">二级会员(个)</text>
+        <text class="text-init text-lg ">20</text>
+      </view>
+    </view>
+    <view class="flex justify-between padding padding-bottom-xs">
+      <button class="cu-btn lg bg-orange light" style="width:48%" catchtap="toVip">会员</button>
+      <button class="cu-btn lg bg-orange" style="width:48%">提现</button>
+    </view>
+  </view>
+</view>
+
+<view class="bg-white">
+  <view class="cu-bar  solid-bottom">
+    <view class='action'>
+      <text class='icon-title text-blue'></text>历史收益记录
+    </view>
+  </view>
+  <view class="padding-sm flex align-center justify-between" wx:for="{{5}}">
+    <view class="flex align-center margin-right-sm">
+      <image class="cu-avatar  round margin-right-sm" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIIyvZt8rnGnOToa3ia8h7xWF3bQEn81TAuDkyzoWa5EeWPYyQ7bX5o1dNA7k9MQRSwicMO3yAr2tkA/132"></image>
+      <view class="flex flex-direction justify-between" style="height:80rpx">
+        <view>张**</view>
+        <view class="cu-tag sm bg-blue shadow-blur">一级会员</view>
+      </view>
+    </view>
+    <view>2020-04-20完成一单</view>
+    <view>收益<text class="text-red text-xl text-bold">21.33</text>元</view>
+  </view>
+</view>

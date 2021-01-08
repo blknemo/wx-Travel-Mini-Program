@@ -1,0 +1,123 @@
+page{
+  background: white;
+}
+.pro {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 15rpx 25rpx;
+}
+
+.pro_img {
+  height: 120rpx;
+  width: 120rpx;
+  flex-shrink: 0;
+  margin-right: 15rpx;
+}
+
+.eva_top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 15rpx 25rpx;
+}
+
+.eva_top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2rpx;
+  transform: scale(1, 0.4);
+  background: #cdcdcd;
+}
+
+.star_imgs {
+  display: flex;
+  align-items: center;
+  margin: 0 25rpx;
+}
+
+
+
+.fb {
+  font-weight: bold;
+}
+
+.eva_text {
+  height: 200rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15rpx 25rpx;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  text-align: justify;
+}
+
+.eva_imgs {
+  display: flex;
+  box-sizing: border-box;
+  padding: 15rpx 25rpx;
+  flex-wrap: wrap;
+}
+
+.add_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200rpx;
+  width: 200rpx;
+  border: 1rpx dashed #e6e6e6;
+  font-size: 28rpx;
+}
+
+.pic {
+  height: 54rpx;
+  width: 54rpx;
+  margin-bottom: 20rpx;
+}
+
+.eva_bottom {
+  box-sizing: border-box;
+  padding: 15rpx 25rpx;
+  border-top: 12rpx solid #f3f5f9;
+}
+
+.eva_service {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25rpx;
+  color: gray;
+  font-size: 28rpx;
+}
+
+.eva_service_item {
+  width: 50%;
+  margin-bottom: 20rpx;
+}
+
+.eva_service_item view {
+  margin-top: 8rpx;
+}
+
+.btn {
+  box-sizing: border-box;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: white;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  background: #7377FF;
+  color: white;
+  margin: 20rpx;
+}
+
+.choosed-image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 7rpx;
+}

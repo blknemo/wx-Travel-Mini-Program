@@ -1,0 +1,70 @@
+
+<view class="bg-img" style="height:345px;">
+  <v-calendar calendarConfig="{{calendarConfig}}" bind:afterTapDay="afterTapDay" bind:whenChangeMonth="whenChangeMonth" bind:onTapDay="onTapDay" bind:afterCalendarRender="afterCalendarRender"></v-calendar>
+</view>
+
+<view class="bto_bar bg-white">
+  <view class="flex align-center justify-between btn solid-bottom padding-lr">
+    <view>成人<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
+    <view class="flex align-center">
+      <text class="text-price text-bold text-lg text-orange">{{adult_price}}</text>
+      <image class="icon margin-left" src="/public/imgs/add.png"></image>
+      <text class="margin-lr-sm">{{adult_num}}</text>
+      <image class="icon" src="/public/imgs/cut.png"></image>
+    </view>
+  </view>
+  <view class="flex align-center justify-between btn solid-bottom padding-lr">
+    <view>大童<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
+    <view class="flex align-center">
+      <text class="text-price text-bold text-lg text-orange">{{child_price}}</text>
+      <image class="icon margin-left" src="/public/imgs/add.png"></image>
+      <text class="margin-lr-sm">{{little_child_num}}</text>
+      <image class="icon" src="/public/imgs/cut.png"></image>
+    </view>
+  </view>
+  <view class="flex align-center justify-between btn solid-bottom padding-lr">
+    <view>小童<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
+    <view class="flex align-center">
+      <text class="text-price text-bold text-lg text-orange">{{little_child_price}}</text>
+      <image class="icon margin-left" src="/public/imgs/add.png"></image>
+      <text class="margin-lr-sm">{{child_num}}</text>
+      <image class="icon" src="/public/imgs/cut.png"></image>
+    </view>
+  </view>
+  <view class="flex align-center justify-between btn solid-bottom padding-lr">
+    <view>单房差<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
+    <view class="flex align-center">
+      <text class="text-price text-bold text-lg text-orange">{{child_price}}</text>
+      <image class="icon margin-left" src="/public/imgs/add.png"></image>
+      <text class="margin-lr-sm">{{little_child_num}}</text>
+      <image class="icon" src="/public/imgs/cut.png"></image>
+    </view>
+  </view>
+  <view class="bg-orange bt" catchtap="to_fill_info">下一步，填写订单</view>
+</view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}" bindtap='hideModal' style="background:rgba(0, 0, 0, 0.1);">
+  <view class="cu-dialog bg-white" catchtap>
+
+      <view class="cu-bar justify-between bg-white text-black solid-bottom">
+        <text class="action text-black text-bold">价格说明</text>
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close'></text>
+        </view>
+      </view>
+
+      <view class="bg-white padding padding-bottom-sm text-left">
+        <view class="salary_text " >成人价：256（供应商200+服务费32*2天数+保险3*2天数=团费256）</view>
+        <view class="salary_text margin-top-sm">中童： 156（供应商100+服务费32*2天数+保险3*2天数=团费156）</view>
+        <view class="salary_text margin-top-sm">小童：106（供应商50+服务费32*2天数+保险3*2天数=团费156）</view>
+      </view>
+
+      <view class="margin-bottom-sm margin-top-sm text-init text-left padding-lr-sm">
+        <text class="text-black text-bold">单房差说明</text>
+      </view>
+      <view class="text-left padding-lr-sm padding-bottom">
+        1小交通： 景区内用车（大峡谷寻宝电梯35元/人，天门山玻璃栈道鞋套费5元/人、扶梯32元/人、小缆车25元/人，芙蓉镇电拼车28元/人）
+        2单房差： 单房差（如产生单房差请自理）。目。
+      </view>
+  </view>
+</view>

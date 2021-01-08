@@ -1,0 +1,32 @@
+<view class="padding-tb">
+  <view class="cu-form-group">
+    <view class='title'>标题</view>
+    <input placeholder="请输入杂谈标题..." class='radius' name='input'></input>
+  </view>
+  <view class="cu-form-group margin-top-sm" wx:hide="{{modalName==null}}">
+    <textarea placeholder="分享旅途中的心得体验..." maxlength="-1" disabled="{{modalName!=null}}" placeholder-class='placeholder'></textarea>
+  </view>
+  <view class="cu-form-group margin-top-sm">
+    <view class="grid col-3 grid-square flex-sub">
+      <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);">
+      </view>
+      <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+        <view class="cu-tag bg-red">
+          <text class='icon-close'></text>
+        </view>
+      </view>
+      <view class="padding-xs solids">
+        <text class='icon-cameraadd'></text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class='title'>所在地</view>
+    <input placeholder="请选择..." class='radius' name='input'></input>
+    <text class='icon-locationfill text-orange'></text>
+  </view>
+  <view class="padding-lr-sm margin-top" >
+    <button class="cu-btn lg bg-theme" style="width:100%">保存</button>
+  </view>
+
+</view>

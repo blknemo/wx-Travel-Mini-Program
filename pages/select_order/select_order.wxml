@@ -1,0 +1,19 @@
+  <radio-group class="block">
+    <view class="cu-form-group" wx:for="{{orders}}">
+      <view class='flex padding-tb-sm' style="width:88%">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectfill"></image>
+        <view class="flex flex-direction justify-center margin-left" style="width:calc(100% - 140rpx)">
+          <view class="title margin-bottom-sm text-cut ">{{item.title}}</view>
+          <view class="text-gray text-sm">
+            <text class="right_xian">{{item.days}}</text>
+            <text class="margin-lr right_xian">{{item.traffic}}</text>
+            <text class="">{{item.start_time}}出发</text>
+          </view>
+        </view>
+      </view>
+      <radio class='orange radio'></radio>
+    </view>
+  </radio-group>
+  <navigator hover-class="none" url="/pages/add_invoice/add_invoice">
+    <view class="bto_bar bg-theme text-center padding-tb">下一步</view>
+  </navigator>

@@ -1,0 +1,4 @@
+.info_input{
+  width: 300rpx;
+  text-align: right;
+}

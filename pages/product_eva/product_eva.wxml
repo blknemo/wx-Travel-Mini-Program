@@ -1,0 +1,69 @@
+<view class="bg-white top_bar" style="top:0;left:0;">
+
+  <view class="text-orange padding-tb-sm padding-left solid-bottom margin-bottom-sm">
+    <text class="text-xxl">3.3</text>分
+    <text class="margin-left-sm text-black">50%满意</text>
+  </view>
+
+  <view class="padding-lr">
+    <view class="cu-tag line-theme radius margin-right-sm margin-bottom-sm" wx:for="{{spots}}">
+      {{item.name}}({{item.num}})
+    </view>
+  </view>
+
+  <view class="padding-lr padding-bottom mt5">
+    <view class="cu-tag round  margin-right {{index==0?'text-theme line-theme':'bg-gray text-black'}}" 
+    wx:for="{{arrangement}}">{{item.name}}({{item.num}})</view>
+  </view>
+
+</view>
+
+<scroll-view scroll-y style="height:calc(100% - 165px)" class="">
+
+  <view wx:for="{{evas}}" class="padding-lr padding-bottom margin-bottom-xs bg-white">
+
+    <view class="padding-tb-sm solid-bottom flex align-center justify-between">
+
+      <view class="flex align-center">
+        <image class="cu-avatar round margin-right-sm" src="{{item.user_avatar}}"></image>
+        <view class="flex flex-direction justify-center">
+          <text>{{item.pb_user}}</text>
+          <text class="text-gray">{{item.pb_time}}</text>
+        </view>
+      </view>
+
+      <view class="flex flex-direction justify-center text-orange">
+        <text class="text-right">{{item.score}}分</text>
+        <text>{{item.eva}}</text>
+      </view>
+
+    </view>
+
+    <view class="margin-top-sm text-black">
+      <view class="margin-bottom-sm">
+        <text class="margin-right">行程安排：<text class="text-orange">{{item.trip_eva}}</text></text>
+        <text>导游服务：<text class="text-orange">{{item.guide_eva}}</text></text>
+      </view>
+      <view class="margin-bottom-sm">
+        <text class="margin-right">住宿体验：<text class="text-orange">{{item.stay_eva}}</text></text>
+        <text>餐食质量：<text class="text-orange">{{item.meal_eva}}</text></text>
+      </view>
+      <view class="margin-bottom-sm">
+        <text class="margin-right">景区质量：<text class="text-orange">{{item.scenery_eva}}</text></text>
+        <text>旅游交通：<text class="text-orange">{{item.traffic_eva}}</text></text>
+      </view>
+    </view>
+
+    <view class="text-black margin-tb">
+      {{item.comment_text}}
+    </view>
+
+    <view class="flex felx-wrap">
+      <image class="margin-right-xs"  wx:for="{{item.comment_imgs}}" wx:for-item="img" src="{{img}}"
+      style="height:160rpx;width:160rpx">
+      </image>
+    </view>
+
+  </view>
+
+</scroll-view>

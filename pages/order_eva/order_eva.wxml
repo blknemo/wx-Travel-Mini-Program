@@ -1,0 +1,39 @@
+<view class="pro">
+  <image class="pro_img radius" src="/public/imgs/test.jpg"></image>
+  <text class="pro_title">玉龙雪山+洱海</text>
+</view>
+<view class="eva_top">
+  <text class="fb margin-right">描述相符</text>
+  <view class="text-xl">
+    <text class="icon-favor text-orange margin-right-xs" wx:for="{{[0,1,2,3,4]}}"></text>
+  </view>
+  <text>{{notice}}</text>
+</view>
+<textarea class="eva_text" placeholder="产品满足你的期待吗？说说它的优点和美中不足的地方吧" bindinput="commentInput"></textarea>
+  <view class="cu-form-group margin-top-sm">
+    <view class="grid col-3 grid-square flex-sub">
+      <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);">
+      </view>
+      <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+        <view class="cu-tag bg-red">
+          <text class='icon-close'></text>
+        </view>
+      </view>
+      <view class="padding-xs solids">
+        <text class='icon-cameraadd'></text>
+      </view>
+    </view>
+  </view>
+<view class="eva_bottom">
+  <view class="fb">服务评价</view>
+  <view class="eva_service">
+    <view wx:for="{{eva_item}}" class="eva_service_item" wx:for-item="mark">
+      <text>{{mark.name}}</text>
+      <view class="text-xl">
+        <text class="icon-favor text-orange margin-right-xs" wx:for="{{[0,1,2,3,4]}}"></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="btn" bindtap="confirmPublish">确认发布</view>

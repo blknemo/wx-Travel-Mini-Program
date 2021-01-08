@@ -1,0 +1,9 @@
+page{
+  height: 100%;
+  padding-top:170px;
+  overflow-y:hidden;
+}
+.top_bar{
+  position: fixed;
+  box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.1)
+}

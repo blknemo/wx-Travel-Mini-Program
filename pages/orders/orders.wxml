@@ -1,0 +1,64 @@
+<scroll-view scroll-x class="bg-white nav">
+  <view class='flex text-center'>
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{menus}}" wx:key bindtap='tabSelect' data-id="{{index}}">{{item}}</view>
+  </view>
+</scroll-view>
+
+<view class="padding-lr-sm margin-top">
+  <view wx:for="{{orders}}" hidden="{{!(item.state_id == TabCur) && TabCur != 0}}">
+    <view class="bg-white text-red margin-bottom-sm padding-tb padding-left-xs" wx:if="{{item.state_id == 2 && TabCur != 0}}">友情提示：待接订单商家将在工作时间2小时内接单</view>
+    <view class="flex flex-direction bg-white margin-bottom-sm radius" >
+      <view class="flex align-center justify-between padding-lr-sm padding-top-sm">
+        <text class="text-bold ">
+          <text class="icon-shop margin-right-xs text=gray"></text>
+          <text class="text-init">{{item.provider}}</text>
+        </text>
+        <text class="text-red text-sm">{{item.state}}</text>
+      </view>
+
+      <view class="flex padding-sm">
+        <image class="avatar margin-right-sm" src="{{item.avatar}}"></image>
+        <view class=" flex flex-direction justify-between" style="width:calc(100% - 140rpx)">
+          <view class="text-init text-df text-cut">{{item.title}}</view>
+          <view class="text-gray text-sm">
+            <text class="right_xian">{{item.days}}</text>
+            <text class="margin-lr right_xian">{{item.traffic}}</text>
+            <text class="">{{item.start_time}}出发</text>
+          </view>
+          <view class="text-gray text-sm">下单时间：{{item.take_order_time}}</view>
+        </view>
+      </view>
+
+      <view class="flex justify-end text-lg padding-lr-sm ">
+        <text class="text-sm">共2人出行合计：</text><text class="text-price text-red">3200</text>
+      </view>
+
+      <view class="flex justify-end padding-lr-sm padding-bottom-sm padding-top-sm">
+      
+        <block wx:if="{{item.state_id == 1 || item.state_id == 2}}">
+          <button class="cu-btn line-red round df">取消订单</button>
+        </block>
+        <block wx:elif="{{item.state_id == 3}}">
+          <button class="cu-btn line-red round df">申请退款</button>
+        </block>
+        <block wx:elif="{{item.state_id == 4}}">
+          <button class="cu-btn line-red round df margin-right">申诉</button>
+          <button class="cu-btn line-red round df margin-right">删除订单</button>
+          <button class="cu-btn line-red round df margin-right" catchtap="toInvoice">申请发票</button>
+          <button class="cu-btn line-red round df" catchtap="toOrderEva">评价</button>
+        </block>
+        <block wx:elif="{{item.state_id == 5}}">
+          <button class="cu-btn line-red round df">删除订单</button>
+        </block>
+        <block wx:elif="{{item.state_id == 6}}">
+          <button class="cu-btn line-red round df">查看进度</button>
+        </block>
+        <block wx:else>
+          <button class="cu-btn line-red round df">查看进度</button>
+        </block>
+
+      </view>
+
+    </view>
+  </view>
+</view>

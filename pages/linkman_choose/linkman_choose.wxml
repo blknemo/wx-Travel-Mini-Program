@@ -1,0 +1,49 @@
+<view class="padding flex justify-between">
+  <button class="cu-btn lg bg-theme" style="width:46%" catchtap="toAddLinkMan">新增常用旅客</button>
+  <button class="cu-btn lg bg-theme" style="width:46%">确认选中</button>
+</view>
+<radio-group class="block">
+  <view class="padding-lr" wx:if="{{passengerList.length>0}}">
+    <view class="cu-form-group margin-bottom-sm radius" wx:for="{{passengerList}}">
+      <view class='flex padding-tb-sm' style="width:88%">
+        <navigator url="/pages/add_passenger/add_passenger?cur_tab=1&type=2&id={{item.id}}" hover-class="none">
+          <view class="p_item_top">
+            <text class="name">{{item.name}}</text>
+            <text wx:if="{{item.is_user}}" class="tag">本人</text>
+          </view>
+          <view class="mobile"> 
+            <text class="margin-right-xs">手机号码</text>{{num.mobile_hide(item.mobile)}}
+          </view>
+          <view class="id_card" wx:if="{{item.id_card}}">
+            <text class="margin-right-xs">身份证</text>{{num.id_card_hide(item.id_card)}}
+          </view>
+          <view class="id_card" wx:if="{{item.tb_id}}">
+            <text class="margin-right-xs">台胞证</text>{{num.mobile_hide(item.tb_id)}}
+          </view>
+          <view class="id_card" wx:if="{{item.hz_id}}">
+            <text class="margin-right-xs">台胞证</text>{{num.mobile_hide(item.hz_id)}}
+          </view>
+        </navigator>
+      </view>
+      <radio class='orange radio'></radio>
+    </view>
+  </view>
+  <view wx:else class="noData">
+    <image class="no_data_img" src="/public/imgs/noData.png"></image>
+    <text>暂无常用旅客，赶快添加吧!</text>
+  </view>
+</radio-group>  
+    
+<!-- 证件号码隐藏显示 -->
+<wxs module="num">
+  var mobileHide = function(array){
+        return array.substring(0, 3) + '****' + array.substring(7);
+  }
+  var id_card_hide = function(array){
+        return array.substring(0, 2) + '****' + array.substring(16);
+  }
+  module.exports={
+    mobile_hide:mobileHide,
+    id_card_hide:id_card_hide
+  }
+</wxs>

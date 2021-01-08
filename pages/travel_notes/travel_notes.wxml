@@ -1,0 +1,57 @@
+<view class="cu-bar bg-white search fixed" style="top:0;left:0">
+  <view class='search-form round'>
+    <text class="icon-search"></text>
+    <input type="text" placeholder="搜索城市" confirm-type="search" bindinput='searchIcon'></input>
+  </view>
+  <view class="text-xxl margin-right-sm" catchtap="to_add_notes">
+    <text class="icon-post text-theme text-bold"></text>
+  </view>
+</view>
+<scroll-view scroll-y class="padding-sm-lr" style="height:calc(100% - 50px)" >
+  <view class="padding bg-white radius-lg margin-bottom-sm text-black" wx:for="{{datas}}"
+  catchtap="viewDetail">
+    <view class="flex justify-between align-center">
+      <view class="flex align-center">
+        <image style="height:74rpx;width:74rpx" class="cu-avatar round margin-right-sm" 
+        src="{{item.avatar}}"></image>
+        <text class="text-bold text-lg">{{item.name}}</text>
+      </view>
+      <text class="text-gray">{{item.time}}发布</text>
+    </view>
+    <view class="margin-tb-sm text-lg">
+      {{item.title}}
+      <view class="cu-tag sm round bg-gray ml5" style="top:-3rpx ;padding:4rpx 16rpx">
+        {{item.city}}
+      </view>
+    </view>
+    <image class="radius" style="height:224rpx;width:100%" mode="" src="{{item.first_img}}"></image>
+    <view  class="margin-tb-sm" wx:if="{{item.last_comments.length>0}}" >
+      <view wx:for="{{item.last_comments}}" wx:for-item="c">{{c.name}}:{{c.text}}</view>
+    </view>
+    <view class="flex justify-between align-center">
+      <view class="cu-avatar-group flex align-center" style="padding-left:20rpx">
+        <view class="bg-gray text-sm round pr" 
+          style="height:46rpx;line-height:46rpx;padding:0 24rpx 0 40rpx;left:-30rpx">
+          等{{item.like_num}}人觉得很赞
+        </view>
+        <image class="cu-avatar sm round" wx:for="{{item.likes}}" wx:for-item="img" src="{{img}}"></image>
+        
+      </view>
+      <view class="flex justify-between">
+        <view class="pr margin-right">
+          <image class="icon-lg" src="/public/imgs/love_on.png"></image>
+          <text class="text-xs text-black" style="position:absolute;top:-14rpx;left:54rpx">
+            {{item.like_num}}
+          </text>
+        </view>
+        <view class="pr margin-right">
+          <image class="icon-lg" style="transform: scale(0.85);" src="/public/imgs/msg.png"></image>
+          <text class="text-xs text-black" style="position:absolute;top:-14rpx;left:54rpx">
+            {{item.comment_num}}
+          </text>
+        </view>
+        <image class="icon-lg" src="/public/imgs/share.png"></image>
+      </view>
+    </view>
+  </view>
+</scroll-view>

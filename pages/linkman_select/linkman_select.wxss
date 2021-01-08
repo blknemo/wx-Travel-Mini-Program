@@ -1,0 +1,7 @@
+.btn{
+  height: 84rpx;
+}
+.form-input{
+  text-align: right;
+  width: 500rpx;
+}

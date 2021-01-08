@@ -1,0 +1,107 @@
+<view class="bg-white padding-lr text-black">
+
+  <view class="flex align-center solid-bottom padding-tb-sm">
+    <image class="cu-avatar lg round margin-right-sm" src="{{detail.avatar}}"></image>
+    <view class="flex flex-direction">
+      <view class="text-bold">{{detail.name}}</view>
+      <view class="text-gray mt5">
+        {{detail.time}}<text class="margin-left-sm">{{detail.view_num}}浏览</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="padding-tb text-bold text-lg">{{detail.title}}</view>
+
+  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style="height:300rpx">
+    <swiper-item class="radius" wx:for="{{detail.imgs}}" wx:key>
+      <image  src="{{item}}" mode='aspectFill'></image>
+    </swiper-item>
+  </swiper>
+
+  <view class="padding-tb text-lg" style="text-align:justify;line-height:48rpx;padding-bottom:10rpx">
+    {{detail.content}}
+  </view>
+
+  <view class="padding-bottom-sm">
+    <view class="cu-tag sm round bg-gray" style="padding:6rpx 18rpx">{{detail.city}}</view>
+  </view>
+
+</view>
+
+<view class="bg-white padding-lr text-black margin-top-sm padding-bottom">
+   <view class="flex align-center justify-between solid-bottom padding-tb">
+    <text>
+      <text class="icon-titles text-theme"></text>
+      <text class="text-bold text-lg">评论</text></text>
+    <view>共{{detail.comment_num}}条<text class="icon-right"></text></view>
+   </view>
+   <view wx:for="{{detail.comments}}" wx:for-index="index1">
+
+    <view class="flex justify-between padding-top">
+      <image class="cu-avatar round mt5" src="{{item.avatar}}"></image>
+      <view class="flex flex-direction" style="width:calc(100% - 80rpx)">
+
+        <view class="flex align-center justify-between">
+          <view class="flex flex-direction">
+            <text class="mb5 text-grey">{{item.name}}</text>
+            <text>{{item.text}}<text class="text-sm text-gray ">{{item.time}}</text></text>
+          </view>
+          <view class="flex flex-direction align-center text-xxl">
+            <text class="icon-likefill margin-bottom-xs {{item.is_like?'text-red':'text-gray'}}"
+            catchtap="like" data-index1="{{index1}}"></text>
+            <text class="text-sm {{item.is_like?'text-red':'text-gray'}}">{{item.like_num}}</text>
+          </view>
+        </view>
+
+        <view class="flex align-center justify-between margin-top-sm" wx:for="{{item.replays}}" wx:for-item="r" wx:for-index="index2" hidden="{{item.is_hide && !(index > 1)}}">
+
+          <view class="flex">
+            <image class="cu-avatar sm round mt5 margin-right-xs" src="{{r.avatar}}"></image>
+            <view class="flex flex-direction">
+              <text class="mb5 text-grey">{{r.name}}</text>
+              <text>{{r.text}}<text class="text-sm text-gray">{{r.time}}</text></text>
+            </view>
+          </view>
+          <view class="flex flex-direction align-center text-xxl">
+            <text class="icon-likefill margin-bottom-xs {{r.is_like?'text-red':'text-gray'}}"
+            catchtap="like" data-index1="{{index1}}" data-index2="{{index2}}"></text>
+            <text class="text-sm {{r.is_like?'text-red':'text-gray'}}">{{r.like_num}}</text>
+          </view>
+
+        </view>
+
+        <view class="text-gray text-sm margin-tb-sm" bindtap="show_more_comment" data-index="{{index1}}"
+        wx:if="{{item.is_hide}}">
+          <text class="icon-move text-gray"></text>
+          展开{{item.replays.length-1}}条回复
+          <text class="icon-triangledownfill lg"></text>
+        </view>
+
+      </view>
+    </view>
+
+
+   </view>
+</view>
+
+<view style="position:fixed;left:0;bottom:0;height:110rpx;width:100%;box-sizing: border-box;" 
+class="bg-white shadow padding-lr-sm flex justify-start align-center">
+  <view class="cu-tag lg round margin-right">写两句，撩撩楼主</view>
+  <view class="flex align-center justify-between" style="width:calc(100% - 310rpx)">
+    <view class="pr" style="height:68rpx">
+      <image class="icon-xl" 
+      src="{{detail.is_like?'/public/imgs/love_on.png':'/public/imgs/love.png'}}"></image>
+      <text class="text-xs text-black" style="position:absolute;top:-12rpx;left:66rpx">
+        {{detail.like_num}}
+      </text>
+    </view>
+    <view class="pr" style="height:68rpx">
+      <image class="icon-xl" style="transform: scale(0.85);" src="/public/imgs/msg.png"></image>
+      <text class="text-xs text-black" style="position:absolute;top:-12rpx;left:66rpx">
+        {{detail.comment_num}}
+      </text>
+    </view>
+    <image class="icon-xl" style="transform: scale(0.94);" src="/public/imgs/collect_on.png"></image>
+    <image class="icon-xl" src="/public/imgs/share.png" style="position:relative;top:2rpx;"></image>
+  </view>
+</view>

@@ -1,0 +1,363 @@
+<view class="img_box pr">
+  <swiper class="square-dot"  circular="true" bindchange="swiperChange"
+  autoplay="true" interval="5000" duration="500" style="height:340rpx">
+    <swiper-item wx:for="{{detail.imgs}}" wx:key>
+      <image src="{{item}}" mode='aspectFill' style="width:100%"></image>
+    </swiper-item>
+  </swiper>
+  <view class="text-white text-sm pro_number">编号 {{detail.pro_number}}</view>
+  <view class="text-white text-sm dots">
+    {{cur_img_index + 1}}/{{detail.imgs.length}}
+    <text class="icon-pic"></text>
+  </view>
+</view>
+
+<view class="bg-white padding-sm">
+
+  <view class="text-black text-xl text-bold">{{detail.title}}</view>
+  <view class=" margin-top-sm text-lg">
+    <text class="text-price-sm text-orange text-bold text-xxl">{{detail.adult_salary}}</text>
+    <text class="text-sm margin-right-sm">起</text>
+    <text class="text-df text-orange" style="border-bottom:1rpx solid orange;" catchtap="showModal" data-target="bottomModal" data-index="0">价格详情</text>
+    <text class="text-sm text-gray margin-left">已售{{detail.sold_out_number}}笔</text>
+  </view>
+  <view class="margin-top-sm flex justify-between algin-center">
+    <view class="flex"> 
+      <view class="margin-right-sm" wx:for="{{detail.securities}}" wx:key>
+      <text class="icon-roundcheck text-gray  margin-right-xss"></text>{{item.name}}</view>
+    </view>
+     <text class="icon-more text-gray" catchtap="showModal" 
+     data-target="bottomModal" data-index="1"></text>
+  </view>
+ 
+</view>
+
+<view class="bg-white margin-top-xs text-black padding-sm">
+
+  <view class="">
+    <text class="text-lg">出发日期</text>
+    <text class="text-sm margin-left-sm text-gray">以下价格均为起价</text>
+  </view>
+
+  <view class="flex jsutify-between align-center margin-top-sm" catchtap="toDateSelect">
+    <view class="flex flex-wrap justify-between align-center date-box">
+      <view wx:for="{{detail.last_days}}" class="cu-tag radius line-gray text-sm flex flex-direction  date-item">
+        <view class="text-black">
+          <text class="margin-right-xs">{{item.day}}</text>
+          <text>{{item.week}}</text>
+        </view>
+        <view class="margin-top-xs text-price text-orange">{{item.adult_price}}</view>
+      </view>
+    </view>
+    <text class="icon-right text-gray"></text>
+  </view>
+
+</view>
+
+<view class="bg-white margin-top-xs text-black padding-sm">
+  <view class="flex align-center justify-between">
+    <view class="text-df text-theme">
+      <text class="text-xl text-bold ">{{detail.score}}</text>分
+      <text class="margin-left-sm">比较满意</text>
+    </view>
+    <navigator hover-class="none" url="/pages/product_eva/product_eva">
+      <view>共有16条评价<text class="icon-right margin-left-sm text-gray"></text></view>
+    </navigator>
+  </view>
+  <view class="text-black margin-top-sm">
+    <view class="flex justify-between">
+      <image class="cu-avatar round" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIIyvZt8rnGnOToa3ia8h7xWF3bQEn81TAuDkyzoWa5EeWPYyQ7bX5o1dNA7k9MQRSwicMO3yAr2tkA/132"></image>
+      <view class="margin-top-sm" style="width:calc(100% - 84rpx)">
+        <view class="flex justify-between align-center">
+          <text class="text-lg">TY</text>
+          <text class="text-gray">2020-04-08</text>
+        </view>
+        <view class="margin-top">
+          城南小陌又逢春，只见梅花不见人。人有生老三千疾，惟有相思不可医。
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="bg-white margin-top-xs" style="margin-bottom:120rpx">
+
+  <view class="cu-list grid col-3 text-center text-bold">
+    <view class="cu-item {{index==cur_tab_index?'bg-orange text-white':'text-black bg-white'}}" wx:for="{{tab_cons}}" wx:key bindtap='tabSelect' 
+    data-id="{{index}}" >{{item}}</view>
+  </view>
+
+  <view hidden="{{!(cur_tab_index==0)}}" class="padding-sm-lr">
+    <view class="padding margin-bottom bg-white">
+      <image src="/public/imgs/hb1.jpg" style="width:100%;" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <view hidden="{{!(cur_tab_index==1)}}" class="bg-page">
+
+    <view class="padding margin-tb bg-white">
+      <image src="/public/imgs/hb.jpg" style="width:100%;" mode="widthFix"></image>
+    </view>
+
+    <view class="pr ov bg-white margin-bottom-sm" wx:for="{{3}}">
+
+      <view class="tag">第一天</view>
+      <view class="text-black text-xl text-bold scenery">三亚</view>
+
+      <view class="cu-timeline">
+
+        <view class='cu-item icon-activityfill' wx:if="{{index==0}}">
+          <view class="node_title margin-bottom">12:30 集合 三亚凤凰国际机场 （具体集合时间地点以导游通知为准）</view>
+          <view class="text-init text-df">我社工作人员会提前一天晚上10点左右电话与你联系；告诉出行事项，请保持收i畅通</view>
+          <view class="text-gray text-sm margin-top-xs">说明：出团时间丶地点仅供参考，具体以出团通知为准</view>
+        </view>
+
+        <view class='cu-item cur icon-homefill'>
+          <view class="node_title margin-bottom">住宿安排</view>
+          <view class="flex align-center">
+            <image class="cu-avatar xl radius margin-right-sm" src="/public/imgs/test.jpg"></image>
+            <view class="flex flex-direction justify-between">
+              <view class="margin-bottom text-init">三亚玉海国际度假酒店</view>
+              <view class="text-sm text-gray"><text class="icon-location"></text>三亚大东海旅游区亚湾路</view>
+            </view>
+          </view>
+        </view>
+
+        <view class='cu-item icon-evaluate_fill'>
+          <view class="node_title margin-bottom">游览景点</view>
+          <view class="scenery_intro text-gray text-sm">前往【蜈支洲岛嗨玩/300分钟/含往返乘船时间】冯小刚贺岁喜剧《私人订制》外景拍摄地，被称为“中国的马尔代夫”，这里沙滩、阳光、碧水、绿树构成一幅美丽的滨海风光，其海岸线蜿蜒绵长，零污染的海水清澈见底，能见度达27米！在这里您可以体验与大海同步呼吸，感受私人定制的看海时间，亦可自费参加岛上丰富的海上娱乐活动（海上项目自理）；◎  行程结束后自由活动，感受让您意犹未尽的魅力海南。当天住宿酒店可能会与前一天或后一天调换，具体以旅行社安排为准，敬请理解！</view>
+          <view class="flex flex-wrap margin-top-xs">
+            <image class="cu-avatar xl radius margin-right-xs" src="/public/imgs/test.jpg" wx:for="{{4}}"></image>
+          </view>
+        </view>
+
+        <view class='cu-item icon-usefullfill'>
+         <view class="node_title margin-bottom">7:30 早餐</view>
+         <view>
+          <text class="text-init margin-right-xs">酒店用餐</text>
+          <text class="text-gray text-sm">(自助餐；餐标：30/位)</text>
+         </view>
+        </view>
+
+        <view class='cu-item icon-usefullfill'>
+         <view class="node_title margin-bottom">12:00 中餐</view>
+         <view>
+          <text class="text-init margin-right-xs">自理</text>
+          <text class="text-gray text-sm">(敬请自理)</text>
+         </view>
+        </view>
+
+        <view class='cu-item icon-usefullfill'>
+         <view class="node_title margin-bottom">18:00 晚餐</view>
+         <view>
+          <text class="text-init margin-right-xs">团餐</text>
+          <text class="text-gray text-sm">(餐标：30/位)</text>
+         </view>
+        </view>
+
+        <view class='cu-item icon-discoverfill'>
+         <view class="node_title margin-bottom">20:00自由活动</view>
+         <view class="text-gray">自由活动</view>
+        </view>
+
+        <view class='cu-item icon-noticefill'>
+         <view class="node_title margin-bottom">注意事项</view>
+         <view class="text-red">注意按时就餐，以免饭菜不足</view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+  <view hidden="{{!(cur_tab_index==2)}}" class="text-df padding-sm" 
+  style="line-height:48rpx;text-align:justify">
+    <view class="margin-bottom-sm text-init">
+      <text class="icon-titles text-theme text-bold mr5"></text>费用包含
+    </view>
+    <view>
+      1旅游意外险： 为保障您的出行安全，途牛免费赠送您旅游意外险。 查看保障内容
+      2交通： 当地旅游巴士
+      3住宿： 行程所列酒店。
+      4用餐： 行程中团队标准用餐，2早4正餐（早餐餐标6元/人，正餐餐标25元/人）（中式餐或自助餐或特色餐，自由活动期间  
+    </view>
+    <view class="margin-bottom-sm margin-top-sm text-init">
+       <text class="icon-titles text-theme text-bold mr5"></text>费用不包含
+    </view>
+    <view>
+      1小交通： 景区内用车（大峡谷寻宝电梯35元/人，天门山玻璃栈道鞋套费5元/人、扶梯32元/人、小缆车25元/人，芙蓉镇电拼车28元/人）
+      2单房差： 单房差（如产生单房差请自理）。
+      3门票： 行程中注明需要另行支付的自费景点（）。
+    </view>
+    <view class="margin-bottom-sm margin-top-sm text-init">
+       <text class="icon-titles text-theme text-bold mr5"></text>
+       儿童费用说明
+    </view>
+    <view>
+      1小交通： 景区内用车（大峡谷寻宝电梯35元/人，天门山玻璃栈道鞋套费5元/人、扶梯32元/人、小缆车25元/人，芙蓉镇电拼车28元/人）
+      2单房差： 单房差（如产生单房差请自理）。目。
+    </view>
+    <view class="margin-bottom-sm margin-top-sm text-init">
+       <text class="icon-titles text-theme text-bold mr5"></text>单房差说明
+    </view>
+    <view>
+      1小交通： 景区内用车（大峡谷寻宝电梯35元/人，天门山玻璃栈道鞋套费5元/人、扶梯32元/人、小缆车25元/人，芙蓉镇电拼车28元/人）
+      2单房差： 单房差（如产生单房差请自理）。目。
+    </view>
+  </view>
+
+  <view hidden="{{!(cur_tab_index==3)}}"  class="text-df padding-sm" 
+  style="line-height:48rpx;text-align:justify">
+    <view class="margin-bottom-sm">
+      <text class="icon-titles text-theme text-bold mr5"></text>适合年龄
+    </view>
+    <view>
+     XXXXXXXXXXXXXXXXXXXX
+     XXXXXXXXXXXXXXXXXXXX
+     XXXXXXXXXXXXXXXXXXXX
+    </view>
+    <view class="margin-bottom-sm margin-top-sm">
+      <text class="icon-titles text-theme text-bold mr5"></text>提供资料
+    </view>
+    <view>
+     XXXXXXXXXXXXXXXXXXXX
+     XXXXXXXXXXXXXXXXXXXX
+     XXXXXXXXXXXXXXXXXXXX
+    </view>
+    <view class="margin-bottom-sm margin-top-sm">
+      <text class="icon-titles text-theme text-bold mr5"></text>携带物品
+    </view>
+    <view>
+     XXXXXXXXXXXXXXXXXXXX
+     XXXXXXXXXXXXXXXXXXXX
+     XXXXXXXXXXXXXXXXXXXX
+    </view>
+    <view class="margin-bottom-sm margin-top-sm">
+      <text class="icon-titles text-theme text-bold mr5"></text>特殊限制
+    </view>
+    <view>
+      病患者、孕妇及行动不便者
+      1.为了确保旅游顺利出行，防止旅途中发生人身意外伤害事故，请旅游者在出行前做一次必要的身体检查，如存在下列情况，因服务能力所限无法接待：
+      （1）传染性疾病患者，如传染性肝炎、活动期肺结核、伤寒等传染病人；
+      （2）心血管疾病患者，如严重高血压、心功能不全、心肌缺氧、心肌梗塞等病人；
+      （3）脑血管疾病患者，如脑栓塞、脑出血、脑肿瘤等病人；
+      （4）呼吸系统疾病患者，如肺气肿、肺心病等病人；
+      （5）精神病患者，如癫痫及各种精神病人；
+      （6）严重贫血病患者，如血红蛋白量水平在50克/升以下的病人；
+      （7）大中型手术的恢复期病患者；
+      （8）孕妇及行动不便者。
+    </view>
+    <view class="margin-bottom-sm margin-top-sm">
+      <text class="icon-titles text-theme text-bold mr5"></text>安全提示
+    </view>
+    <view>
+      高危项目安全须知——漂流
+      出于安全考虑，患有精神病、颈椎病、高血压、心脏病、癫痫病、腰椎病、骨折及运动障碍的患者、过量饮酒的游客、孕妇、1.2米以下的儿童，55岁以上老人以及其他被漂流管理人员建议不宜参加的游客，严禁参与漂流活动。以上疾病类型只是简要示例，如游客尚有其他疾病可能不适合参加旅游活动的，请主动向旅行社告知或咨询。 
+      漂流是一项全身湿透的水上运动，岸边往往湿滑，漂流前请穿上漂流服或泳装，穿上软底鞋以防滑倒、擦伤脚底。 
+      在整个活动中，务必要听从导游或者工作人员的指示，注意安全。 
+      漂流前请将贵重物品（如相机、手机、首饰、手表、车钥匙、现金等）交寄存处保管，以免遗失或浸水，请保管好寄存柜钥匙。 
+      漂流时，请游客正确穿戴安全帽、救生衣，注意航道引导标志。 
+      漂流艇进入滑道和跳台前，游客务必要正确放置划桨，双手紧抓安全绳，严禁松手严禁站立，坐稳身体，更安全的体验速度的刺激。
+      漂流过程中，不要过度打水仗，嬉戏；不要进入河道游泳，玩水，以免划伤脚部；不得脱下安全帽和救生衣；不要随意将橡皮艇、安全帽交于他人或随意丢
+    </view>
+    <view class="margin-bottom-sm margin-top-sm">
+      <text class="icon-titles text-theme text-bold mr5"></text>保险说明
+    </view>
+    <view>
+      旅游意外伤害险：人民保险承保，50万游客意外伤害险，5万医疗险，国内2万遗体送返险，国外10万遗体送返险。
+      购买成功后，可拨打人保客服95518，报姓名和身份证号，查询保单（出行前一天）。由供应商（旅行社）提供旅行社责任险。
+    </view>
+  </view>
+
+  <view hidden="{{!(cur_tab_index==4)}}" class="text-df padding-sm" 
+  style="line-height:48rpx;text-align:justify">
+    <view class="margin-bottom-sm text-init">
+      <text class="icon-titles text-theme text-bold mr5"></text>游客违约责任
+    </view>
+    <view>
+     下单后，团队出票，机票、列车票、船票、包括汽车位空置等，不得更改、签转、退票。否则有票损或者汽车费用摊派。因此，如游客发生撤单行为，提前 天撤单，违约金扣款  %，提前 天撤单，违约金扣款  %，提前 天撤单，违约金扣款  %。（填写3项）
+    </view>
+    <view class="margin-bottom-sm margin-top-sm text-init">
+       <text class="icon-titles text-theme text-bold mr5"></text>供应商违约责任
+    </view>
+    <view>
+     4天及以上的国内游及国外游：提前7天，取消订单，退回全部团款，不赔偿。提前3天取消订单，退回全部团款并赔偿游团款的10%，提前1天取消订单，退回全部团款并赔偿游客团款的20%，当天取消，退回全部团款并赔偿游客团款的30%。
+      周边游：3天及以下的周边游，提前3天，取消订单，退回全部团款，不赔偿。提前1天取消订单，退回全部团款并赔偿游客团款的10%，当天取消订单，退回全部团款并赔偿游客团款的30%，当天取消，退回全部团款并赔偿游客团款的30%。
+      注：如因天灾人祸，航班延误或取消，列车延误或取消，汽车意外事件以及其他人力不可抗力的因素，导致行程取消或延期。旅行社和游客互不赔偿，旅行社积极须协助游客挽回损失。
+    </view>
+  </view>
+  
+  <view hidden="{{!(cur_tab_index==5)}}" class="text-df padding-sm" 
+  style="line-height:48rpx;text-align:justify">
+    <view>
+      因本网站仅仅为交易双方提供交易平台，因此，如有投诉或纠纷，一切经济和法律事宜，与本网站无关。但本平台将积极为游客提供力所能及的便利！
+      如游客回程后2天内发起投诉，我方将暂时冻结团款。直至双方协商协调一致。
+      如双方未能达成一致，本网站支持和配合游客到当地（市级）旅游局投诉，或协助在当地（市级）仲裁机构包括法院办理相关法律程序。并依据相关行政法规法律裁决或法院判决为依据，确定团款归属，团款解冻，转至相关方。
+      以此确保本网站权益和口碑。
+      如游客发起投诉，7个工作日内游客未积极采取行动（到当地市级旅游局或仲裁机构或法院，投诉或上诉），本平台不再予以协助，本平台将团款支付给供应商。由游客自行投诉或其他法律行为。
+      因游客及旅行社双方可以自行投诉或进行相关法律行为，因此，以上涉及平台的行为，都是平台为游客提供的友情协助，非必要非必须行为。平台不承担相关法律和经济责任。
+    </view>
+  </view>
+
+</view>
+
+
+
+<view class="cu-bar bto-bar bg-white shadow-lg flex justify-around align-center"
+style="height:110rpx">
+  <view class="flex flex-direction align-center">
+    <image class="icon sc" src="/public/imgs/headset.png"></image>
+    <text class="text-xs">客服</text>
+  </view>
+  <view class="flex flex-direction align-center">
+    <image class="icon" src="/public/imgs/shop_car.png"></image>
+    <text  class="text-xs">购物车</text>
+  </view>
+  <view class="flex flex-direction align-center">
+    <image class="icon" src="/public/imgs/collect_on.png"></image>
+    <text class="text-xs">收藏</text>
+  </view>
+  <button class="cu-btn round bg-orange" style="height:78rpx;width:360rpx"
+  catchtap="toDateSelect">立即预定</button>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}"
+style="background:rgba(0, 0, 0, 0.1);" bindtap='hideModal'>
+  <view class="cu-dialog" catchtap>
+
+    <view hidden="{{!(cur_condition_index==0)}}">
+
+      <view class="cu-bar justify-between bg-white text-black solid-bottom">
+        <text class="action text-black text-bold">价格说明</text>
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close'></text>
+        </view>
+      </view>
+
+      <view class="bg-white padding padding-bottom-lg">
+        <view class="salary_text" >成人价：256（供应商200+服务费32*2天数+保险3*2天数=团费256）</view>
+        <view class="salary_text margin-top-sm">中童： 156（供应商100+服务费32*2天数+保险3*2天数=团费156）</view>
+        <view class="salary_text margin-top-sm">小童：106（供应商50+服务费32*2天数+保险3*2天数=团费156）</view>
+      </view>
+
+    </view>
+
+    <view hidden="{{!(cur_condition_index==1)}}">
+
+      <view class="cu-bar justify-between bg-white text-black solid-bottom">
+        <text class="action text-black text-bold">服务保障</text>
+        <view class='action' bindtap='hideModal'>
+          <text class='icon-close'></text>
+        </view>
+      </view>
+
+      <view class="padding flex flex-direction align-start bg-white padding-bottom-lg">
+        <block wx:for="{{detail.securities}}">
+          <view class="cu-tag radius line-black {{index!=0?'margin-top':''}}">{{item.name}}</view>
+          <view class="salary_text margin-top-sm">{{item.des}}</view>
+        </block>
+      </view>
+
+    </view>
+
+  </view>
+</view>

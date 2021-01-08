@@ -1,0 +1,36 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='icon-back'></text>
+    </navigator>
+    <view class='content'  style='pointer-events:auto;top:{{StatusBar}}px;width:calc(100% - 500rpx);line-height:57rpx;'>
+      <view class="flex" >
+        <view class="{{curTab == 0 ?'bg-theme':'text-theme border-theme'}} left_tab text-center" style="width:calc(50% - 1rpx)" bindtap="selectTab" data-index = "0">合同</view>
+        <view class="{{curTab == 1 ?'bg-theme':'text-theme border-theme'}} right_tab text-center" style="width:calc(50% - 1rpx)" bindtap="selectTab" data-index = "1">发票</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="flex align-center justify-between bg-white">
+  <scroll-view scroll-x class="bg-white nav" style="width:76%">
+      <view class="cu-item flex-sub {{index==TabCur?'text-theme cur':''}}" wx:for="{{tabs}}" wx:key bindtap='tabSelect' data-id="{{index}}">{{item}}</view>
+  </scroll-view>
+  <navigator hover-class="none" url="/pages/select_order/select_order">
+    <button class="cu-btn df bg-theme round margin-right">开发票</button>
+  </navigator>
+</view>
+
+<view class="padding-sm">
+  <navigator hover-class="none" url="/pages/add_invoice/add_invoice">
+    <view class="flex justify-between align-center padding-sm margin-bottom-sm bg-white radius" 
+    wx:for="{{invoice}}">
+      <view  style="width:90%">
+        <view class="text-init">{{item.com_name}}</view>
+        <view class="cu-tag radius sm line-gray margin-tb-xs">{{item.type}}</view>
+        <view class="text-gray">税号 {{item.number}}</view>
+      </view> 
+      <text class="icon-right text-gray"></text>
+    </view>
+  </navigator>
+</view>

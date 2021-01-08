@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "v-calendar":"/components/calendar/index"
+  },
+  "navigationBarBackgroundColor": "#7377FF",
+  "navigationBarTitleText": "选择日期/天数",
+  "navigationBarTextStyle": "white"
+}

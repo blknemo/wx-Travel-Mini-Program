@@ -1,0 +1,18 @@
+.avatar{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 6rpx;
+}
+.right_xian{
+  position: relative;
+}
+.right_xian::after{
+  content: "";
+  position: absolute;
+  right: -15rpx;
+  top:-0;
+  height: 100%;
+  width: 2rpx;
+  background: #cdcdcd;
+  transform: scale(0.3,1);
+}

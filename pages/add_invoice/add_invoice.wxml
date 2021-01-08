@@ -1,0 +1,43 @@
+  <view class="cu-form-group margin-top">
+    <view class='title'>发票抬头</view>
+    <radio-group class="block flex align-center">
+      <radio class='orange sm radio mr5'></radio>企业
+      <radio class='orange sm radio margin-left mr5'></radio>个人
+    </radio-group>
+  </view>
+  <view class="cu-form-group">
+    <view class='title'>抬头名称</view>
+    <input placeholder="必填，公司名称" class='radius text-right' name='input'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class='title'>税号</view>
+    <input placeholder="必填，纳税人识别号" class='radius text-right' name='input'></input>
+  </view>
+
+  <view class="cu-form-group margin-top-sm">
+    <view class='title'>项目</view>
+    <picker  value="{{index}}" range="{{array}}">
+      <input placeholder="请选择开票项目" class='radius text-right' name='input'></input>
+    </picker>
+  </view>
+  <view class="cu-form-group">
+    <view class='title'>金额</view>
+    <input placeholder="请填写报销金额" class='radius text-right' name='input'></input>
+  </view>
+
+  <view class="cu-form-group margin-top-sm">
+    <view class='title'>手机号</view>
+    <input placeholder="请输入手机号" class='radius text-right' name='input'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class='title'>邮箱</view>
+    <input placeholder="请填写常用邮箱" class='radius text-right' name='input'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class='title'>地址</view>
+    <input placeholder="请填写寄出地址" class='radius text-right' name='input'></input>
+  </view>
+
+  <!-- <navigator hover-class="none" url="/pages/add_invoice/add_invoice"> -->
+    <view class="bto_bar bg-theme text-center padding-tb">提交</view>
+  <!-- </navigator> -->

@@ -1,0 +1,135 @@
+.item{
+  width: 100%;
+  overflow:hidden;
+}
+.avatar{
+  height: 260rpx;
+  width: 100%;
+}
+.des{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 56rpx;
+  line-height: 56rpx;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  color: white;
+}
+.through_address{
+  position: absolute;
+  left: 0;
+  bottom: 8rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  width: 100%;
+  /* background: rgba(0,0,0,0.4); */
+  color: white;
+}
+.title{
+  white-space: normal !important;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  word-break: break-all; 
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+  width: 100%;
+  /* height: 82rpx; */
+  line-height: 40rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  color: black;
+}
+
+.p_con_top{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* .p_con_top::after{
+  content: "";
+  position: absolute;
+  left:0;
+  bottom: -25rpx;
+  width: 100%;
+  height: 2rpx;
+  background: #cdcdcd;
+  transform: scale(1,0.1);
+} */
+
+.p_con_center{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: gray;
+}
+.score{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80rpx;
+  border-radius: 4rpx;
+  border-top-left-radius: 14rpx;
+  border-bottom-right-radius: 14rpx;
+  background-color: #5873FE;
+  color: white;
+  padding: 2rpx 6rpx;
+  font-size: 22rpx;
+  margin-right: 22rpx;
+}
+.provider{
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.provider_icon{
+  height: 28rpx;
+  width: 30rpx;
+  margin-right: 5rpx;
+}
+
+.right_xian{
+  position: relative;
+}
+.right_xian::after{
+  content: "";
+  position: absolute;
+  right: -15rpx;
+  top:-0;
+  height: 100%;
+  width: 2rpx;
+  background: #cdcdcd;
+  transform: scale(0.3,1);
+}
+.p_days{
+  margin:0 30rpx;
+}
+.props{
+  display: flex;
+}
+.prop{
+  position: relative;
+  display: inline-block;
+  border-radius: 4rpx;
+  color: #5873FE;
+  padding: 2rpx 6rpx 2rpx 10rpx;
+  font-size: 20rpx;
+  margin-right: 20rpx;
+}
+.prop::after{
+  content: "  ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 16rpx;
+  width: 400%;
+  height: 400%;
+  border: 1px solid #5873FE;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scale(0.5, 0.5);
+  transform: scale(0.25, 0.25);
+}

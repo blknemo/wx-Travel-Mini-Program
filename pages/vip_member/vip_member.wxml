@@ -1,0 +1,31 @@
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='icon-title text-blue'></text>一级会员
+  </view>
+</view>
+<view class="padding-sm flex align-center justify-between" wx:for="{{3}}">
+  <view class="flex align-center margin-right-sm">
+    <image class="cu-avatar  round margin-right-sm" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIIyvZt8rnGnOToa3ia8h7xWF3bQEn81TAuDkyzoWa5EeWPYyQ7bX5o1dNA7k9MQRSwicMO3yAr2tkA/132"></image>
+    <view class="flex flex-direction justify-between" style="height:80rpx">
+      <view>张**</view>
+      <view class="cu-tag sm bg-blue shadow-blur">一级会员</view>
+    </view>
+  </view>
+  <view>2020-04-20成为您的一级会员</view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='icon-title text-blue'></text>二级会员
+  </view>
+</view>
+<view class="padding-sm flex align-center justify-between" wx:for="{{3}}">
+  <view class="flex align-center margin-right-sm">
+    <image class="cu-avatar  round margin-right-sm" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIIyvZt8rnGnOToa3ia8h7xWF3bQEn81TAuDkyzoWa5EeWPYyQ7bX5o1dNA7k9MQRSwicMO3yAr2tkA/132"></image>
+    <view class="flex flex-direction justify-between" style="height:80rpx">
+      <view>张**</view>
+      <view class="cu-tag sm bg-orange shadow-blur">二级会员</view>
+    </view>
+  </view>
+  <view>2020-04-20成为您的二级会员</view>
+</view>

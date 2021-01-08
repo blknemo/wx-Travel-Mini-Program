@@ -1,0 +1,149 @@
+page {
+  background: #f3f5f7;
+}
+
+.top {
+  background: #f3f5f7;
+}
+
+.logo {
+  height: 300rpx;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  height: 140rpx;
+  padding: 8rpx 0;
+  margin:6rpx 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22rpx;
+  /* width: 22%; */
+}
+
+.module {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 84rpx;
+  width: 84rpx;
+  border-radius: 100rpx;
+  margin-bottom: 10rpx;
+}
+
+.module_img {
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.bg-one {
+  background: rgb(110, 151, 243);
+}
+
+.bg-two {
+  background: rgb(253, 177, 57);
+}
+
+.bg-three {
+  background: rgb(100, 199, 91);
+}
+
+.bg-four {
+  background: rgb(137, 111, 220);
+}
+
+.bg-five {
+  background: rgb(255, 133, 76);
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  background: white;
+}
+
+.feature_text {
+  font-size: 30rpx;
+  letter-spacing: 4rpx;
+  font-weight: bold;
+  font-style: oblique;
+  color: #450fE4;
+  width: 70rpx;
+  flex-shrink: 0;
+}
+
+.feature_swiper {
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 80%;
+  font-size: 28rpx;
+  margin: 0 25rpx
+}
+
+.feature_detail {
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 90rpx;
+  font-size: 26rpx;
+  flex-shrink: 0;
+  color: #A279FD;
+}
+
+.spots {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx;
+  background: white;
+}
+.spot{
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.content{
+  font-size: 28rpx;
+}
+.title_img {
+  height: 56rpx;
+  width: 200rpx;
+  margin: 0 auto;
+}
+
+#pointer {
+  display: flex;
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  position: relative;
+  background: rgb(255, 133, 76);
+  color: white;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+  margin-right: 60rpx;
+  flex-shrink: 0;
+}
+#pointer:before {
+  content: "";
+  position: absolute;
+  right: -30rpx;
+  bottom: 0;
+  border-left: 30rpx solid rgb(255, 133, 76);
+  border-top: 30rpx solid transparent;
+  border-bottom: 30rpx solid transparent;
+}

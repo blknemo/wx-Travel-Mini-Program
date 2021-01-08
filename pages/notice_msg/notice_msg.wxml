@@ -1,0 +1,30 @@
+<view class="padding-sm">
+  <view class="flex flex-direction bg-white  margin-bottom-sm radius" wx:for="{{msgs}}">
+
+    <view class="flex align-center justify-between padding-lr-sm padding-top-sm">
+      <text class="text-bold ">
+        <text class="icon-shop margin-right-xs text=gray"></text>
+        <text class="text-init">{{item.provider}}</text>
+      </text>
+      <view class="flex justify-end  padding-lr-sm ">
+        <text class="text-sm">
+          <text class="text-red text-lg margin-right-xs">{{item.start_time}}</text>出团通知
+        </text>
+      </view>
+    </view>
+
+    <view class="flex align-center padding-sm solid-bottom">
+      <image class="avatar margin-right-sm" src="{{item.avatar}}"></image>
+      <view class=" flex flex-direction justify-between" style="width:calc(100% - 140rpx);height:100rpx">
+        <view class="text-init text-df text-cut">{{item.title}}</view>
+        <view class="text-gray text-sm">
+          <text class="right_xian">{{item.days}}</text>
+          <text class="margin-lr right_xian">{{item.traffic}}</text>
+          <text class="">{{item.start_address}}至{{item.destination}}</text>
+        </view>
+        <!-- <view class="text-gray text-sm">下单时间：{{item.take_order_time}}</view> -->
+      </view>
+    </view>
+
+  </view>
+</view>

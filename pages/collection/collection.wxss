@@ -1,0 +1,13 @@
+.avatar{
+  height: 140rpx;
+  width: 140rpx;
+}
+.tip{
+  position: absolute;
+  padding: 4rpx 14rpx;
+  border-top-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  color: white;
+  font-size: 20rpx;
+  z-index: 999;
+}
