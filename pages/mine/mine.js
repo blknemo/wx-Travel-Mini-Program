@@ -1,7 +1,9 @@
+const app = getApp();
 
 Page({
 
   data: {
+    userInfo: '',
     iconList: [{
       icon: 'card ',
       color: 'red',
@@ -50,11 +52,16 @@ Page({
       badge: 0,
       name: '联系客服'
     }, ],
-    gridCol:4,
+    // gridCol:4,
+    gridCol:2,
   },
 
   onLoad: function (options) {
-
+    this.setData({
+      userInfo: app.globalData.userInfo
+    });
+    console.log("mine：" + this.data.userInfo.nickName);
+    console.log("mine：" + app.globalData.userInfo.nickName);
   },
   onShow: function () {
 
@@ -71,7 +78,9 @@ Page({
   },
   toOrderSort(e){
     var tab_index = e.currentTarget.dataset.hi
-    wx.navigateTo({
+    // wx.navigateTo({
+    // 这里不能使用navigateTo是因为我在下面的tabBar标签栏添加了订单助力跳转界面，所以得使用switchTab来进行跳转
+    wx.switchTab({
       url: '/pages/orders/orders?tab_index=' + tab_index,
     })
   },

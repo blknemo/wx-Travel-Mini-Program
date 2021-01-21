@@ -14,7 +14,7 @@ page{
   box-sizing: border-box;
   height: 90rpx;
   padding:0 30rpx;
-  background: #7377FF;
+  background: #0081FF;
 }
 .search_right{
   display: flex;

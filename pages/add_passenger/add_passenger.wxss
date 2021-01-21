@@ -92,7 +92,7 @@
   background: white;
   border-radius: 8rpx;
   font-size: 30rpx;
-  background: #7377FF;
+  background: #0081FF;
   color: white;
   margin: 20rpx;
 }

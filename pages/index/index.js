@@ -24,10 +24,173 @@ Page({
       {name:"轻松营销",content:"朋友们通过你发送的链接进入小程序，即成为你的永久会员"},
       {name:"确保权益",content:"回程3天后，团款支付给供应商。如有投诉，退还相应团款，直至全额返回"},
       {name:"省钱赚钱",content:"会员报团的利润，20元的利润归你；会员的下级会员报团，5元利润归你"}
-    ]
+    ],
+    data: [
+      {
+        "avatar":"/public/imgs/test.jpg",
+        "title":"三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider":"趣旅旅行",
+        "destination":"三亚",
+        "days":"6天5晚",
+        "traffic":"动车往返",
+        "price":"3200",
+        "score":"10.0",
+        "sold_out_num":"321",
+        "properties":["无自费","无购物","铁定出行"],
+        "start_address":"武汉",
+        "start_time":"10-1",
+        "is_full":false,
+        "through_address":["南昌","武汉","成都","重庆","厦门"]
+      },
+      {
+        "avatar":"/public/imgs/test.jpg",
+        "title":"三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider":"趣旅旅行",
+        "destination":"三亚",
+        "days":"6天5晚",
+        "traffic":"动车往返",
+        "price":"3200",
+        "score":"10.0",
+        "sold_out_num":"321",
+        "properties":["无自费","无购物","铁定出行"],
+        "start_address":"武汉",
+        "start_time":"10-1",
+        "is_full":false,
+        "through_address":["南昌","武汉","成都","重庆","厦门"]
+      },
+      {
+        "avatar":"/public/imgs/test.jpg",
+        "title":"三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider":"趣旅旅行",
+        "destination":"三亚",
+        "days":"6天5晚",
+        "traffic":"动车往返",
+        "price":"3200",
+        "score":"10.0",
+        "sold_out_num":"321",
+        "properties":["无自费","无购物","铁定出行"],
+        "start_address":"武汉",
+        "start_time":"10-1",
+        "is_full":false,
+        "through_address":["南昌","武汉","成都","重庆","厦门"]
+      },
+      {
+        "avatar":"/public/imgs/test.jpg",
+        "title":"三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider":"趣旅旅行",
+        "destination":"三亚",
+        "days":"6天5晚",
+        "traffic":"动车往返",
+        "price":"3200",
+        "score":"10.0",
+        "sold_out_num":"321",
+        "properties":["无自费","无购物","铁定出行"],
+        "start_address":"武汉",
+        "start_time":"10-1",
+        "is_full":false,
+        "through_address":["南昌","武汉","成都","重庆","厦门"]
+      },
+      {
+        "avatar":"/public/imgs/test.jpg",
+        "title":"三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider":"趣旅旅行",
+        "destination":"三亚",
+        "days":"6天5晚",
+        "traffic":"动车往返",
+        "price":"3200",
+        "score":"10.0",
+        "sold_out_num":"321",
+        "properties":["无自费","无购物","铁定出行"],
+        "start_address":"武汉",
+        "start_time":"10-1",
+        "is_full":false,
+        "through_address":["南昌","武汉","成都","重庆","厦门"]
+      },
+      {
+        "avatar":"/public/imgs/test.jpg",
+        "title":"三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider":"趣旅旅行",
+        "destination":"三亚",
+        "days":"6天5晚",
+        "traffic":"动车往返",
+        "price":"3200",
+        "score":"10.0",
+        "sold_out_num":"321",
+        "properties":["无自费","无购物","铁定出行"],
+        "start_address":"武汉",
+        "start_time":"10-1",
+        "is_full":false,
+        "through_address":["南昌","武汉","成都","重庆","厦门"]
+      },
+    ],
+  },
+  viewDetail(){
+    wx.navigateTo({
+      url: '/pages/product_detail/product_detail',
+    })
   },
 
   onLoad: function () {
+    var that = this;
+        wx.getUserInfo({
+            success: function(res) {
+                // 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
+                // 根据自己的需求有其他操作再补充
+                // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
+                console.log(res.userInfo);
+                that.setData({
+                    userInfo: res.userInfo
+                });
+                app.globalData.userInfo = res.userInfo;
+                wx.login({
+                    success: res => {
+                        // 获取到用户的 code 之后：res.code
+                        console.log("用户的code:" + res.code);
+                        // 可以传给后台，再经过解析获取用户的 openid
+                        // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
+                        wx.request({
+                            // 自行补上自己的 APPID 和 SECRET
+                            // GET https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
+                            url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxd947db7bfd81dbc1&secret=e32ca2bfb5d6eb7da1b2d92d48f34c56&js_code=' + res.code + '&grant_type=authorization_code',
+                            method: 'GET',
+                            success: res => {
+                                // 获取到用户的 openid
+                                console.log("用户的openid:" + res.data.openid);
+
+                                // 如果不是很明白这里为什么用that
+                                // https://blog.csdn.net/weixin_46363283/article/details/106690558
+                                // that.setData({
+                                //     openid: res.data.openid
+                                // });
+                                app.globalData.openid = res.data.openid;
+                                console.log(app.globalData.openid);
+                                that.setData({
+                                    openid: app.globalData.openid
+                                }),
+
+                                /**这里的request我本来是放在外面的，可是不行，
+                                 * 我本以为上面的request会依次执行下面的语句，包括success，可是不是这样的；
+                                 * 经过测试，我发现在上一个request成功返回openid之前，这条request就已经执行了，
+                                 * 说明上一条request是异步的，请求完之后就不管了，
+                                 * 接着执行下面的语句，等请求成功之后才执行success */
+                                wx.request({
+                                    // url: 'http://localhost:8080/test/loginDemo',
+                                    url: 'http://localhost:8082/user/user',
+                                    method: 'POST',
+                                    // header: {
+                                    //   'content-type': 'application/x-www-form-urlencoded'
+                                    // },
+                                    data: {
+                                        id: app.globalData.openid
+                                    }
+                                });
+                                
+                            }
+                        });
+                    }
+                });
+            }
+        });
   },
   
   onShareAppMessage: function (ops) {

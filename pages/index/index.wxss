@@ -1,3 +1,5 @@
+@import "/pages/sp_products/sp_products.wxss";
+
 page {
   background: #f3f5f7;
 }

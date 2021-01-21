@@ -10,6 +10,7 @@
   </view>
 </view>
 <view class="padding">
-  <button class="cu-btn lg bg-theme" style="width:100%">提交</button>
+  <!-- <button class="cu-btn lg bg-theme save_btn" style="width:100%">提交</button> -->
+  <button class="cu-btn lg bg-blue save_btn" style="width:100%">提交</button>
 </view>
 

@@ -9,7 +9,9 @@
     </navigator>
   </block>
 </view>
-<view class="features">
+
+
+<!-- <view class="features">
   <text class="feature_text">旅游资讯</text>
   <swiper class="feature_swiper"  vertical="true" autoplay="{{true}}" circular="true" interval="5000">
     <swiper-item class="swiper_item" wx:for="{{features}}" wx:key="{{index}}">
@@ -20,9 +22,53 @@
 </view>
 <view class="spots">
   <view class="text-init text-xl text-bold" style="text-align:center">平台特色</view>
-  <!-- <image class="title_img" src="/public/imgs/spot.jpg"></image> -->
+  <image class="title_img" src="/public/imgs/spot.jpg"></image>
   <view  class="spot" wx:for="{{spots}}">
     <view id="pointer" class="sign">{{item.name}}</view>
     <view class="content">{{item.content}}</view>
+  </view>
+</view> -->
+
+
+<view class="spots">
+  <view class="text-init text-xl text-bold" style="text-align:center">热门景点</view>
+  <!-- <image class="title_img" src="/public/imgs/spot.jpg"></image> -->
+  <!-- <view  class="spot" wx:for="{{spots}}">
+    <view id="pointer" class="sign">{{item.name}}</view>
+    <view class="content">{{item.content}}</view>
+  </view> -->
+  <view class="item radius bg-white margin-bottom-sm" wx:for="{{data}}" wx:key catchtap="viewDetail">
+    <view class="pr">
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <view class="des text-sm flex padding-lr ">
+        <view class="df">
+          <view class="provider right_xian text-lg">
+            <text class="icon-home text-xxl text-bold mr5"></text>
+            <text class="text-sm">{{item.provider}}</text>
+          </view>
+          <text class="right_xian  p_days">{{item.days}}</text>
+          <text class="right_xian">{{item.traffic}}</text>
+          <text class="ml30">{{item.is_full?'客满':'有余位'}}</text>
+        </view>
+      </view>
+      <view class="through_address text-sm padding-lr">
+        途经:<text class="ml20" wx:for="{{item.through_address}}" wx:for-item="address">{{address}}</text>
+      </view>
+    </view>
+    
+    <!-- <view class="flex flex-direction padding-tb-xs padding-lr-sm ">
+        <text class="title text-cut">{{item.title}}</text>
+        <view class="p_con_top">
+          <view class="p_con_center">
+            <view class="score">{{item.score}}分</view>
+            <view class="prop" wx:for="{{item.properties}}" wx:for-item="prop">{{prop}}</view>
+            <text>已售{{item.sold_out_num}}笔</text>
+          </view>
+        </view>
+        <view class="flex align-center justify-between margin-top-sm">
+          <text class="text-price text-orange text-bold text-xl">{{item.price}}<text class="text-sm">起</text></text>
+          <text class="text-sm">{{item.start_time}}出发</text>
+        </view>
+    </view> -->
   </view>
 </view>

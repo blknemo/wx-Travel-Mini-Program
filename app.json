@@ -30,7 +30,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#0081FF",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
@@ -47,10 +47,23 @@
     },
     {
       "selectedIconPath": "public/imgs/mine_on.png",
-      "pagePath": "pages/mine/mine",
+      "pagePath": "pages/orders/orders",
       "iconPath": "public/imgs/mine.png",
-      "text": "我的"
-    }]
+      "text": "订单助力"
+      },
+      {
+        "selectedIconPath": "public/imgs/mine_on.png",
+        "pagePath": "pages/notice_msg/notice_msg",
+        "iconPath": "public/imgs/mine.png",
+        "text": "行程"
+      },
+      {
+        "selectedIconPath": "public/imgs/mine_on.png",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "public/imgs/mine.png",
+        "text": "我的"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
