@@ -228,42 +228,42 @@ Page({
                   data: {
                     id: app.globalData.openid
                   },
-                  success() {
-                    // 登录成功之后填写登录日志记录表login_log
-                    //os, browser, system
-                    wx.getSystemInfo({
-                      success: (result) => {
-                        app.globalData.loginInfo.os = result.system;
-                        app.globalData.loginInfo.browser = '微信小程序';
-                        app.globalData.loginInfo.system = '微信小程序客户端';
-                      },
-                    });
-                    // ip
-                    wx.request({
-                      url: 'http://ip-api.com/json',
-                      method: 'GET',
-                      success(res) {
-                        app.globalData.loginInfo.userId = app.globalData.openid;
-                        app.globalData.loginInfo.ip = res.data.query;
-                        app.globalData.loginInfo.city = res.data.city;
-                        console.log(app.globalData.loginInfo.ip);
-                        console.log(app.globalData.loginInfo);
-                        wx.request({
-                          url: 'http://localhost:8082/user/loginlog',
-                          method: 'POST',
-                          data: {
-                            // loginLog: app.globalData.loginInfo
-                            userId: app.globalData.loginInfo.userId,
-                            ip: app.globalData.loginInfo.ip,
-                            os: app.globalData.loginInfo.os,
-                            browser: app.globalData.loginInfo.browser,
-                            system: app.globalData.loginInfo.system,
-                            city: app.globalData.loginInfo.city
-                          }
-                        })
-                      }
-                    });
-                  }
+                  // success() {
+                  //   // 登录成功之后填写登录日志记录表login_log
+                  //   //os, browser, system
+                  //   wx.getSystemInfo({
+                  //     success: (result) => {
+                  //       app.globalData.loginInfo.os = result.system;
+                  //       app.globalData.loginInfo.browser = '微信小程序';
+                  //       app.globalData.loginInfo.system = '微信小程序客户端';
+                  //     },
+                  //   });
+                  //   // ip
+                  //   wx.request({
+                  //     url: 'http://ip-api.com/json',
+                  //     method: 'GET',
+                  //     success(res) {
+                  //       app.globalData.loginInfo.userId = app.globalData.openid;
+                  //       app.globalData.loginInfo.ip = res.data.query;
+                  //       app.globalData.loginInfo.city = res.data.city;
+                  //       console.log(app.globalData.loginInfo.ip);
+                  //       console.log(app.globalData.loginInfo);
+                  //       wx.request({
+                  //         url: 'http://localhost:8082/user/loginlog',
+                  //         method: 'POST',
+                  //         data: {
+                  //           // loginLog: app.globalData.loginInfo
+                  //           userId: app.globalData.loginInfo.userId,
+                  //           ip: app.globalData.loginInfo.ip,
+                  //           os: app.globalData.loginInfo.os,
+                  //           browser: app.globalData.loginInfo.browser,
+                  //           system: app.globalData.loginInfo.system,
+                  //           city: app.globalData.loginInfo.city
+                  //         }
+                  //       })
+                  //     }
+                  //   });
+                  // }
                 });
               }
             });

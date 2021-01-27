@@ -1,11 +1,6 @@
 <view class="search_tab">
-  <span 
-    wx:for="{{tabBars}}" 
-    wx:key="{{index}}" 
-    class="{{cur_tab == index?'active_tab':''}}" 
-    data-hi="{{index}}" 
-    bindtap="switchTab"
-  >
+  <span wx:for="{{tabBars}}" wx:key="{{index}}" class="{{cur_tab == index?'active_tab':''}}" data-hi="{{index}}"
+    bindtap="switchTab">
     {{item}}
   </span>
 </view>
@@ -26,15 +21,21 @@
   <view class="passengerList">
     <view wx:if="{{passengerList.length>0}}">
       <view class="p_item" wx:for="{{passengerList}}" wx:key="{{item.id}}">
-          <navigator url="/pages/add_passenger/add_passenger?cur_tab=1&type=2&id={{item.id}}" hover-class="none">
-            <view class="p_item_top">
-              <text class="name">{{item.name}}</text>
-              <text wx:if="{{item.is_user}}" class="tag">本人</text>
-            </view>
-            <view class="mobile">手机号码{{num.mobile_hide(item.mobile)}}</view>
-            <view class="id_card">身份证{{num.id_card_hide(item.id_card)}}</view>
-          </navigator>
-          <image class="del_icon" src="/public/imgs/del.png" catchtap="handelDel" data-type="1" data-id="{{item.id}}"></image>
+        <navigator url="/pages/add_passenger/add_passenger?cur_tab=1&type=2&id={{item.id}}" hover-class="none">
+          <view class="p_item_top">
+            <text class="name">{{item.name}}</text>
+            <text wx:if="{{item.self}}" class="tag">本人</text>
+          </view>
+          <view class="mobile">手机号码{{num.mobile_hide(item.phone)}}</view>
+          <view wx:for="{{item.credentials}}" wx:for-item="credential" wx:key="credential.id">
+            <view wx:if="{{credential.type==0}}" class="id_card">身份证{{num.id_card_hide(credential.number)}}</view>
+            <view wx:if="{{credential.type==1}}" class="id_card">护照{{num.id_card_hide(credential.number)}}</view>
+            <view wx:if="{{credential.type==2}}" class="id_card">港澳通行证{{num.id_card_hide(credential.number)}}</view>
+            <view wx:if="{{credential.type==3}}" class="id_card">台胞证{{num.id_card_hide(credential.number)}}</view>
+          </view>
+        </navigator>
+        <image class="del_icon" src="/public/imgs/del.png" catchtap="handelDel" data-type="1" data-id="{{item.id}}">
+        </image>
       </view>
     </view>
     <view wx:else class="noData">
@@ -44,24 +45,34 @@
   </view>
 </scroll-view>
 
+
+
+
+
+
+<!-- 联系人 -->
 <scroll-view hidden="{{!(cur_tab==1)}}" class="box">
   <navigator url="/pages/add_passenger/add_passenger?cur_tab=2&type=1" hover-class="none">
     <view class="tab_card_sl">
-        <image class="icon mr10" src="/public/imgs/apply.png"></image>
-        <text>新增联系人</text>
+      <image class="icon mr10" src="/public/imgs/apply.png"></image>
+      <text>新增联系人</text>
     </view>
   </navigator>
   <view class="passengerList">
-    <view wx:if="{{passengerList.length>0}}">
+    <view wx:if="{{linkManList.length>0}}">
       <view class="p_item" wx:for="{{linkManList}}" wx:key="{{item.id}}">
-          <navigator url="/pages/add_passenger/add_passenger?cur_tab=2&type=2&id={{item.id}}" hover-class="none">
-              <view class="p_item_top">
-                <text class="name">{{item.name}}</text>
-                <text wx:if="{{item.is_init}}" class="tag">默认</text>
-              </view>
-              <text class="mobile">手机号码{{num.mobile_hide(item.mobile)}}</text>
-          </navigator>
-          <image class="del_icon" src="/public/imgs/del.png" catchtap="handelDel" data-type="2" data-id="{{item.id}}"></image>
+        <navigator url="/pages/add_passenger/add_passenger?cur_tab=2&type=2&id={{item.id}}" hover-class="none">
+          <view class="p_item_top">
+            <text class="name">{{item.name}}</text>
+            <!-- <text wx:if="{{item.is_init}}" class="tag">默认</text> -->
+            <text wx:if="{{item.isdefault}}" class="tag">默认</text>
+          </view>
+          <!-- <text class="mobile">手机号码{{num.mobile_hide(item.mobile)}}</text> -->
+          <text class="mobile">手机号码{{num.mobile_hide(item.phone)}}</text>
+        </navigator>
+        <!-- 这里是删除按钮，可以看到我们删除的id存在了data-id中，我们的标签也是通过data-hi保存交互的 -->
+        <image class="del_icon" src="/public/imgs/del.png" catchtap="handelDel" data-type="2" data-id="{{item.id}}">
+        </image>
       </view>
     </view>
     <view wx:else class="noData">
@@ -73,14 +84,14 @@
 
 <!-- 证件号码隐藏显示 -->
 <wxs module="num">
-  var mobileHide = function(array){
-        return array.substring(0, 3) + '****' + array.substring(7);
+  var mobileHide = function (array) {
+    return array.substring(0, 3) + '****' + array.substring(7);
   }
-  var id_card_hide = function(array){
-        return array.substring(0, 2) + '****' + array.substring(16);
+  var id_card_hide = function (array) {
+    return array.substring(0, 2) + '****' + array.substring(16);
   }
-  module.exports={
-    mobile_hide:mobileHide,
-    id_card_hide:id_card_hide
+  module.exports = {
+    mobile_hide: mobileHide,
+    id_card_hide: id_card_hide
   }
 </wxs>

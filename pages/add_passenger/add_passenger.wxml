@@ -1,3 +1,4 @@
+<!-- 旅客，这里的cur_tab是详情页面点击新增按钮之后传过来的 -->
 <block wx:if="{{cur_tab}}">
   <view class="tab_card_sl m15">
     <image class="icon mr10" src="/public/imgs/saomiao.png"></image>
@@ -10,11 +11,11 @@
     </view>
     <view class="name">
       <text>中文姓名</text>
-      <input class="text_input" placeholder="与证件姓名一致" value="{{name}}" bindinput="handleNameInput"></input>
+      <input class="text_input" placeholder="与证件姓名一致" value="{{passenger.name}}" bindinput="handleNameInput"></input>
     </view>
     <view class="mobile">
       <text>手机号码</text>
-      <input class="text_input" type="number" placeholder="请输入手机号码" value="{{mobile}}" bindinput="handleMobileInput"></input>
+      <input class="text_input" type="number" placeholder="请输入手机号码" value="{{passenger.phone}}" bindinput="handleMobileInput"></input>
     </view>
   </view>
 
@@ -24,13 +25,13 @@
       <view class="margin-bottom-xs" hidden="{{!(item.value == 0)}}">
         <view class="name">
           <text>身份证</text>
-          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{id_card}}" bindinput="handleIdCardInput"></input>
+          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{credential0.number}}" bindinput="handleIdCardInput" data-index="0"></input>
           <text class="icon-delete text-theme right_icon" catchtap="certDelete" data-index="0"></text>
         </view>
         <view class="mobile">
           <text>有效期至</text>
-          <picker class="data_picker" mode="date" value="{{valid_time}}" bindchange="handleValidTimeInput">
-            <input class="text_input margin-right-xxl" placeholder="请选择证件有效期" value="{{valid_time}}" bindinput="handleValidTimeInput"></input>
+          <picker class="data_picker" mode="date" value="{{credential0.effectiveDate}}" bindchange="handleValidTimeInput" data-index="0">
+            <input class="text_input margin-right-xxl" placeholder="请选择证件有效期" value="{{credential0.effectiveDate}}" bindinput="handleValidTimeInput"></input>
             <text class="icon-right text-gray right_icon"></text>
           </picker>
         </view>
@@ -39,13 +40,13 @@
       <view class="margin-bottom-xs" hidden="{{!(item.value == 1)}}">
         <view class="name">
           <text>护照</text>
-          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{id_card}}" bindinput="handleIdCardInput"></input>
+          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{credential1.number}}" bindinput="handleIdCardInput" data-index="1"></input>
           <text class="icon-delete text-theme right_icon" catchtap="certDelete" data-index="1"></text>
         </view>
         <view class="mobile">
           <text>有效期至</text>
-          <picker class="data_picker" mode="date" value="{{valid_time}}" bindchange="handleValidTimeInput">
-            <input class="text_input margin-right-xxl" placeholder="请选择证件有效期" value="{{valid_time}}" bindinput="handleValidTimeInput"></input>
+          <picker class="data_picker" mode="date" value="{{credential1.effectiveDate}}" bindchange="handleValidTimeInput" data-index="1">
+            <input class="text_input margin-right-xxl" placeholder="请选择证件有效期" value="{{credential1.effectiveDate}}" bindinput="handleValidTimeInput"></input>
             <text class="icon-right text-gray right_icon"></text>
           </picker>
         </view>
@@ -54,13 +55,13 @@
       <view class="margin-bottom-xs" hidden="{{!(item.value == 2)}}">
         <view class="name">
           <text>港澳通行证</text>
-          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{id_card}}" bindinput="handleIdCardInput"></input>
+          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{credential2.number}}" bindinput="handleIdCardInput" data-index="2"></input>
           <text class="icon-delete text-theme right_icon" catchtap="certDelete" data-index="2"></text>
         </view>
         <view class="mobile">
           <text>有效期至</text>
-          <picker class="data_picker" mode="date" value="{{valid_time}}" bindchange="handleValidTimeInput">
-            <input class="text_input margin-right-xxl" placeholder="请选择证件有效期" value="{{valid_time}}" bindinput="handleValidTimeInput"></input>
+          <picker class="data_picker" mode="date" value="{{credential2.effectiveDate}}" bindchange="handleValidTimeInput" data-index="2">
+            <input class="text_input margin-right-xxl" placeholder="请选择证件有效期" value="{{credential2.effectiveDate}}" bindinput="handleValidTimeInput"></input>
             <text class="icon-right text-gray right_icon"></text>
           </picker>
         </view>
@@ -69,7 +70,7 @@
       <view class="margin-bottom-xs" hidden="{{!(item.value == 3)}}">
         <view class="mobile">
           <text>台胞证</text>
-          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{id_card}}" bindinput="handleIdCardInput"></input>
+          <input class="text_input margin-right-xxl" type="idcard" placeholder="请保持与证件一致" value="{{credential3.number}}" bindinput="handleIdCardInput" data-index="3"></input>
           <text class="icon-delete text-theme right_icon" catchtap="certDelete" data-index="3"></text>
         </view>
       </view>
@@ -86,28 +87,36 @@
 
   <view class="card_sl">
     <text>设置为本人</text>
-    <switch style="zoom:0.8" color="#7377FF" checked="{{is_user === 1}}" bindchange="handleCheck"></switch>
+    <switch style="zoom:0.8" color="#7377FF" checked="{{passenger.self === true}}" bindchange="handleCheck"></switch>
   </view>
 
+  <span class="warn">{{warn}}</span>
   <view class="save_btn" bindtap="handleSave">保存</view>
 </block>
 
+
+<!-- 新增联系人 -->
 <block wx:else>
   <view class="card_md">
+    <!-- <input type="" name="id" value="{{id}}"/> -->
     <view class="name">
       <text>姓名</text>
-      <input class="text_input" placeholder="与证件姓名一致" value="{{name}}" bindinput="handleNameInput"></input>
+      <!-- <span wx:if="{{name==''}}" class="warn">{{warn}}</span> -->
+      <input class="text_input" placeholder="与证件姓名一致" value="{{linkMan.name}}" bindinput="handleNameInput"></input>
     </view>
     <view class="mobile">
       <text>手机号码</text>
-      <input class="text_input" type="number" placeholder="请输入手机号码" value="{{mobile}}" bindinput="handleMobileInput"></input>
+      <!-- <span class="warn">{{(mobile=='')? warn:''}}</span> -->
+      <input class="text_input" type="number" placeholder="请输入手机号码" value="{{linkMan.phone}}" bindinput="handleMobileInput"></input>
     </view>
   </view>
 
   <view class="card_sl">
     <text>设置为默认</text>
-    <switch style="zoom:0.8" color="#7377FF" checked="{{is_init === 1}}" bindchange="handleCheck"></switch>
+    <switch style="zoom:0.8" color="#7377FF" checked="{{linkMan.isdefault === true}}" bindchange="handleCheck"></switch>
   </view>
 
-  <view class="save_btn" bindtap="handleSave">保存</view>
+  <span class="warn">{{warn}}</span>
+
+  <button class="save_btn" bindtap="handleSave">保存</button>>
 </block>
