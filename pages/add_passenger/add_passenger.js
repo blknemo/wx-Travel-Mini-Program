@@ -366,6 +366,24 @@ Page({
       console.log(this.data.linkMan.isdefault);
     }
   },
+
+  /**
+   * 处理旅客类别，成人或小孩
+   * @param {*} e 
+   */
+  handleCheckChild(e) {
+
+    // 只能是旅客
+    console.log("旅客类别");
+    this.setData({
+      // is_user: e.detail.value ? 1 : 0,
+      // is_init: e.detail.value ? 1 : 0
+      'passenger.type': e.detail.value
+    })
+    // console.log(this.data.name);
+    console.log(this.data.linkMan.type);
+
+  },
   navBack(e) {
     if (e) {
       let currentPages = getCurrentPages();

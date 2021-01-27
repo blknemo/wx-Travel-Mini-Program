@@ -25,6 +25,7 @@
           <view class="p_item_top">
             <text class="name">{{item.name}}</text>
             <text wx:if="{{item.self}}" class="tag">本人</text>
+            <text wx:if="{{item.type}}" class="tag">儿童</text>
           </view>
           <view class="mobile">手机号码{{num.mobile_hide(item.phone)}}</view>
           <view wx:for="{{item.credentials}}" wx:for-item="credential" wx:key="credential.id">

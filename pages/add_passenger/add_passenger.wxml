@@ -86,6 +86,11 @@
   </view>
 
   <view class="card_sl">
+    <text>设置为儿童</text>
+    <switch style="zoom:0.8" color="#7377FF" checked="{{passenger.type === true}}" bindchange="handleCheckChild"></switch>
+  </view>
+
+  <view class="card_sl">
     <text>设置为本人</text>
     <switch style="zoom:0.8" color="#7377FF" checked="{{passenger.self === true}}" bindchange="handleCheck"></switch>
   </view>
