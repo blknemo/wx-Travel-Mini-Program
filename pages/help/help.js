@@ -1,181 +1,157 @@
-const app = getApp()
+// pages/help/help.js
+
+var app = getApp();
 
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    modules: [{
-        name: "周边游",
-        icon: "/public/imgs/around.png",
-        bg: "bg-gradual-red",
-        url: "/pages/products/products"
+    TabCur: 0,
+    scrollLeft: 0,
+    menus: ["全部", "待付款", "待接单", "待出行", "已出行", "退款单"],
+    orders: [{
+        "avatar": "/public/imgs/test.jpg",
+        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider": "趣旅旅行",
+        "destination": "三亚",
+        "days": "6天5晚",
+        "traffic": "动车往返",
+        "price": "3200",
+        "score": "10.0",
+        "sold_out_num": "321",
+        "properties": ["无自费", "无购物", "铁定出行"],
+        "start_address": "武汉",
+        "start_time": "10-1",
+        "is_full": false,
+        "through_address": ["南昌", "武汉", "成都"],
+        "state": "待付款",
+        "state_id": 1,
+        "take_order_time": "2020-01-20 18:05"
       },
       {
-        name: "国内游",
-        icon: "/public/imgs/national.png",
-        bg: "bg-gradual-orange",
-        url: "/pages/products/products"
+        "avatar": "/public/imgs/test.jpg",
+        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider": "趣旅旅行",
+        "destination": "三亚",
+        "days": "6天5晚",
+        "traffic": "动车往返",
+        "price": "3200",
+        "score": "10.0",
+        "sold_out_num": "321",
+        "properties": ["无自费", "无购物", "铁定出行"],
+        "start_address": "武汉",
+        "start_time": "10-1",
+        "is_full": false,
+        "through_address": ["南昌", "武汉", "成都"],
+        "state": "待接单",
+        "state_id": 2,
+        "take_order_time": "2020-01-20 18:05"
       },
       {
-        name: "出境游",
-        icon: "/public/imgs/outbound.png",
-        bg: "bg-gradual-green",
-        url: "/pages/products/products"
+        "avatar": "/public/imgs/test.jpg",
+        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider": "趣旅旅行",
+        "destination": "三亚",
+        "days": "6天5晚",
+        "traffic": "动车往返",
+        "price": "3200",
+        "score": "10.0",
+        "sold_out_num": "321",
+        "properties": ["无自费", "无购物", "铁定出行"],
+        "start_address": "武汉",
+        "start_time": "10-1",
+        "is_full": true,
+        "through_address": ["南昌", "武汉", "成都", "北京"],
+        "state": "待出行",
+        "state_id": 3,
+        "take_order_time": "2020-01-20 18:05"
       },
       {
-        name: "团建亲子",
-        icon: "/public/imgs/special.png",
-        bg: "bg-gradual-blue",
-        url: "/pages/sp_products/sp_products"
+        "avatar": "/public/imgs/test.jpg",
+        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider": "趣旅旅行",
+        "destination": "三亚",
+        "days": "6天5晚",
+        "traffic": "动车往返",
+        "price": "3200",
+        "score": "10.0",
+        "sold_out_num": "321",
+        "properties": ["无自费", "无购物", "铁定出行"],
+        "start_address": "武汉",
+        "start_time": "10-1",
+        "is_full": false,
+        "through_address": ["南昌", "武汉", "成都"],
+        "state": "已出行",
+        "state_id": 4,
+        "take_order_time": "2020-01-20 18:05"
       },
       {
-        name: "特价游",
-        icon: "/public/imgs/special.png",
-        bg: "bg-gradual-blue",
-        url: "/pages/sp_products/sp_products"
+        "avatar": "/public/imgs/test.jpg",
+        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider": "趣旅旅行",
+        "destination": "三亚",
+        "days": "6天5晚",
+        "traffic": "动车往返",
+        "price": "3200",
+        "score": "10.0",
+        "sold_out_num": "321",
+        "properties": ["无自费", "无购物", "铁定出行"],
+        "start_address": "武汉",
+        "start_time": "10-1",
+        "is_full": false,
+        "through_address": ["南昌", "武汉", "成都"],
+        "state": "退款中",
+        "state_id": 5,
+        "take_order_time": "2020-01-20 18:05"
       },
       {
-        name: "旅游杂谈",
-        icon: "/public/imgs/note.png",
-        bg: "bg-gradual-purple",
-        url: "/pages/travel_notes/travel_notes"
-      }
+        "avatar": "/public/imgs/test.jpg",
+        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider": "趣旅旅行",
+        "destination": "三亚",
+        "days": "6天5晚",
+        "traffic": "动车往返",
+        "price": "3200",
+        "score": "10.0",
+        "sold_out_num": "321",
+        "properties": ["无自费", "无购物", "铁定出行"],
+        "start_address": "武汉",
+        "start_time": "10-1",
+        "is_full": false,
+        "through_address": ["南昌", "武汉", "成都"],
+        "state": "已取消",
+        "state_id": 6,
+        "take_order_time": "2020-01-20 18:05"
+      },
+      {
+        "avatar": "/public/imgs/test.jpg",
+        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
+        "provider": "趣旅旅行",
+        "destination": "三亚",
+        "days": "6天5晚",
+        "traffic": "动车往返",
+        "price": "3200",
+        "score": "10.0",
+        "sold_out_num": "321",
+        "properties": ["无自费", "无购物", "铁定出行"],
+        "start_address": "武汉",
+        "start_time": "10-1",
+        "is_full": false,
+        "through_address": ["南昌", "武汉", "成都"],
+        "state": "申诉中",
+        "state_id": 7,
+        "take_order_time": "2020-01-20 18:05"
+      },
+
     ],
-    features: [
-      "方便快捷-准确快速获取行程。",
-      "高额保险-50万旅游意外险（3元/天/人），平台自动代买。",
-      "价格透明-收取服务费（25元/天/人）。",
-      "确保游客权益-回程3天后，团款支付给供应商。如有投诉，退还相应团款，直至全额返回。",
-      "自由赚钱-通过你发送的链接，第一次进入小程序的游客，成为你的永久会员，每次旅游的服务费的80%（20元/天/人）归你。"
-    ],
-    spots: [{
-        name: "方便快捷",
-        content: "准确快速获取行程"
-      },
-      {
-        name: "价格透明",
-        content: "成本+服务费（35天/人，包含3元保险）"
-      },
-      {
-        name: "高额保险",
-        content: "50万旅游意外险（3元/天/人），平台自动代买"
-      },
-      {
-        name: "轻松营销",
-        content: "朋友们通过你发送的链接进入小程序，即成为你的永久会员"
-      },
-      {
-        name: "确保权益",
-        content: "回程3天后，团款支付给供应商。如有投诉，退还相应团款，直至全额返回"
-      },
-      {
-        name: "省钱赚钱",
-        content: "会员报团的利润，20元的利润归你；会员的下级会员报团，5元利润归你"
-      }
-    ],
-    data: [{
-        "avatar": "/public/imgs/test.jpg",
-        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
-        "provider": "趣旅旅行",
-        "destination": "三亚",
-        "days": "6天5晚",
-        "traffic": "动车往返",
-        "price": "3200",
-        "score": "10.0",
-        "sold_out_num": "321",
-        "properties": ["无自费", "无购物", "铁定出行"],
-        "start_address": "武汉",
-        "start_time": "10-1",
-        "is_full": false,
-        "through_address": ["南昌", "武汉", "成都", "重庆", "厦门"]
-      },
-      {
-        "avatar": "/public/imgs/test.jpg",
-        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
-        "provider": "趣旅旅行",
-        "destination": "三亚",
-        "days": "6天5晚",
-        "traffic": "动车往返",
-        "price": "3200",
-        "score": "10.0",
-        "sold_out_num": "321",
-        "properties": ["无自费", "无购物", "铁定出行"],
-        "start_address": "武汉",
-        "start_time": "10-1",
-        "is_full": false,
-        "through_address": ["南昌", "武汉", "成都", "重庆", "厦门"]
-      },
-      {
-        "avatar": "/public/imgs/test.jpg",
-        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
-        "provider": "趣旅旅行",
-        "destination": "三亚",
-        "days": "6天5晚",
-        "traffic": "动车往返",
-        "price": "3200",
-        "score": "10.0",
-        "sold_out_num": "321",
-        "properties": ["无自费", "无购物", "铁定出行"],
-        "start_address": "武汉",
-        "start_time": "10-1",
-        "is_full": false,
-        "through_address": ["南昌", "武汉", "成都", "重庆", "厦门"]
-      },
-      {
-        "avatar": "/public/imgs/test.jpg",
-        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
-        "provider": "趣旅旅行",
-        "destination": "三亚",
-        "days": "6天5晚",
-        "traffic": "动车往返",
-        "price": "3200",
-        "score": "10.0",
-        "sold_out_num": "321",
-        "properties": ["无自费", "无购物", "铁定出行"],
-        "start_address": "武汉",
-        "start_time": "10-1",
-        "is_full": false,
-        "through_address": ["南昌", "武汉", "成都", "重庆", "厦门"]
-      },
-      {
-        "avatar": "/public/imgs/test.jpg",
-        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
-        "provider": "趣旅旅行",
-        "destination": "三亚",
-        "days": "6天5晚",
-        "traffic": "动车往返",
-        "price": "3200",
-        "score": "10.0",
-        "sold_out_num": "321",
-        "properties": ["无自费", "无购物", "铁定出行"],
-        "start_address": "武汉",
-        "start_time": "10-1",
-        "is_full": false,
-        "through_address": ["南昌", "武汉", "成都", "重庆", "厦门"]
-      },
-      {
-        "avatar": "/public/imgs/test.jpg",
-        "title": "三亚春节热售 豪品0自费 印象丽江+洱海大邮轮+玉龙雪山",
-        "provider": "趣旅旅行",
-        "destination": "三亚",
-        "days": "6天5晚",
-        "traffic": "动车往返",
-        "price": "3200",
-        "score": "10.0",
-        "sold_out_num": "321",
-        "properties": ["无自费", "无购物", "铁定出行"],
-        "start_address": "武汉",
-        "start_time": "10-1",
-        "is_full": false,
-        "through_address": ["南昌", "武汉", "成都", "重庆", "厦门"]
-      },
-    ],
-  },
-  viewDetail() {
-    wx.navigateTo({
-      url: '/pages/product_detail/product_detail',
-    })
   },
 
-  onLoad: function () {
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     var that = this;
     wx.getUserInfo({
       success: function (res) {
@@ -275,25 +251,102 @@ Page({
         });
       }
     });
+
+    that.setData({
+      options: options
+    })
+
+    console.log(options.orderId);
+    wx.request({
+      url: 'http://localhost:8082/orders/order/' + options.orderId,
+      method: 'GET',
+      success(res) {
+        console.log(res.data.data);
+        that.setData({
+          allDiscount: res.data.data.discount,
+          helpNum: res.data.data.helpNum
+        })
+        console.log(that.data.allDiscount);
+      }
+    })
+
   },
 
-  onShareAppMessage: function (ops) {
-    if (ops.from === 'button') {
-      console.log(ops.target)
-    }
-    return {
-      title: '报团旅游小程序',
-      path: 'pages/index/index', // 路径，传递参数到指定页面。
-      imageUrl: '', // 分享的封面图
-      success: function (res) {
-        // 转发成功
-        console.log("转发成功:" + JSON.stringify(res));
-      },
-      fail: function (res) {
-        // 转发失败
-        console.log("转发失败:" + JSON.stringify(res));
-      }
-    }
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (e) {
+    console.log(e);
+
+    return {
+      // 这里可以把订单id传进去，再在用户加载的时候拿出来保存
+      // path: '/pages/help/help?orderId=' + orderId
+      path: '/pages/help/help?orderId=' + '1'
+    }
+  },
+
+
+
+  handleHelp(e) {
+    var that = this;
+    wx.request({
+      // url: 'http://localhost:8082/help/help/' + orderId + app.globalData.openid + '/',
+      url: 'http://localhost:8082/help/help/' + that.data.options.orderId + '/' + app.globalData.openid,
+      method: 'POST',
+      success(res) {
+        // 显示助力金额
+        console.log(res);
+        console.log(res.data.data);
+        that.setData({
+          message: res.data.message
+        })
+        console.log(that.data.discount);
+
+        // 重新显示
+        that.onLoad(that.data.options);
+      }
+    })
   }
 })

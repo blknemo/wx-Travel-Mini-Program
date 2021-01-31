@@ -1,0 +1,46 @@
+/* pages/help/help.wxss */
+.avatar {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 6rpx;
+}
+
+.right_xian {
+  position: relative;
+}
+
+.right_xian::after {
+  content: "";
+  position: absolute;
+  right: -15rpx;
+  top: -0;
+  height: 100%;
+  width: 2rpx;
+  background: #cdcdcd;
+  transform: scale(0.3, 1);
+}
+
+
+
+
+
+
+.bg_img {
+  height: 100%;
+  width: 100%;
+}
+
+/* 加背景图片 */
+page {
+  overflow: hidden;
+  position: fixed;
+  background-image: url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1178083271,2983915044&fm=26&gp=0.jpg');
+  margin: 0px;
+  /*下面的是关键的设置100%显示*/
+  background-size: 100% 100%;
+}
+
+
+.text-lg {
+  font-size: 60rpx;
+}

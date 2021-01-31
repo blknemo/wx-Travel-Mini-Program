@@ -26,7 +26,8 @@
     "pages/my_income/my_income",
     "pages/notice_msg/notice_msg",
     "pages/advice/advice",
-    "pages/rec/rec"
+    "pages/rec/rec",
+    "pages/help/help"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,20 +37,20 @@
   },
   "tabBar": {
     "color": "#9B9B9B",
-		"selectedColor": "#450fE4",
-		"borderStyle": "white",
-    "list": [	
-    {
-      "selectedIconPath": "public/imgs/home_on.png",
-      "pagePath": "pages/index/index",
-      "iconPath": "public/imgs/home.png",
-      "text": "首页"
-    },
-    {
-      "selectedIconPath": "public/imgs/mine_on.png",
-      "pagePath": "pages/orders/orders",
-      "iconPath": "public/imgs/mine.png",
-      "text": "订单助力"
+    "selectedColor": "#450fE4",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "public/imgs/home_on.png",
+        "pagePath": "pages/index/index",
+        "iconPath": "public/imgs/home.png",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "public/imgs/mine_on.png",
+        "pagePath": "pages/orders/orders",
+        "iconPath": "public/imgs/mine.png",
+        "text": "订单助力"
       },
       {
         "selectedIconPath": "public/imgs/mine_on.png",
@@ -63,6 +64,7 @@
         "iconPath": "public/imgs/mine.png",
         "text": "我的"
       }
+      
     ]
   },
   "sitemapLocation": "sitemap.json"
