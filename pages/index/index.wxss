@@ -149,3 +149,12 @@ page {
   border-top: 30rpx solid transparent;
   border-bottom: 30rpx solid transparent;
 }
+.text-name{
+  display: -webkit-box;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}

@@ -1,85 +1,88 @@
 <view class="search">
-  <view class="position">武汉<image class="sj" src="/public/imgs/xia_sanjiao.png"></image></view>
+  <view class="position">武汉
+    <!-- <image class="sj" src="/public/imgs/xia_sanjiao.png"></image> -->
+  </view>
   <view class="search_right">
     <view class="search_box">
-      <image class="search_img" src="/public/imgs/search.png"></image>{{key_word}}
+      <!-- <image class="search_img" src="/public/imgs/search.png"></image> -->
+      {{key_word}}
     </view>
     <view class="date_box" bindtap="showModal" data-target="Image">
-      <image class="date_img" src="/public/imgs/date.png"></image>{{departure}}
+      <!-- <image class="date_img" src="/public/imgs/date.png"></image> -->
+      {{departure}}
     </view>
   </view>
 </view>
 <view class="condition">
-     <view class="condition_item" bindtap="showModal" 
-     data-target="bottomModal" data-index = '0'>
-      综合排序<image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image>
-     </view>
-     <view class="condition_item" bindtap="showModal" 
-     data-target="bottomModal" data-index = '1'>
-      出发地<image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image>
-     </view>
-     <view class="condition_item" bindtap="showModal" 
-     data-target="bottomModal" data-index = '2'>
-      价格<image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image>
-     </view>
-     <view class="condition_item" bindtap="showModal" 
-     data-target="bottomModal" data-index = '3'>
-      天数<image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image>
-     </view>
-     <view class="condition_item" bindtap="showModal" data-target="DrawerModalR">
-      筛选<image class="filter" src='/public/imgs/filter.png'></image>
-     </view>
+  <view class="condition_item" bindtap="showModal" data-target="bottomModal" data-index='0'>
+    综合排序
+    <!-- <image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image> -->
+  </view>
+  <view class="condition_item" bindtap="showModal" data-target="bottomModal" data-index='1'>
+    出发地
+    <!-- <image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image> -->
+  </view>
+  <view class="condition_item" bindtap="showModal" data-target="bottomModal" data-index='2'>
+    价格
+    <!-- <image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image> -->
+  </view>
+  <view class="condition_item" bindtap="showModal" data-target="bottomModal" data-index='3'>
+    天数
+    <!-- <image class="sj_gray" src='/public/imgs/xia_sanjiao_gray.png'></image> -->
+  </view>
+  <view class="condition_item" bindtap="showModal" data-target="DrawerModalR">
+    筛选
+    <!-- <image class="filter" src='/public/imgs/filter.png'></image> -->
+  </view>
 </view>
-<view class="other_condition">
+<!-- <view class="other_condition">
   <view class="other_condition_item" wx:for="{{other_conditions}}">
     {{item}}
   </view>
-</view>
+</view> -->
 <scroll-view class="products" scroll-y>
-  <navigator url="/pages/product_detail/product_detail" hover-class="none">
-    <view class="product_item" wx:for="{{products}}">
-      <image class="p_avatar" src="{{item.avatar}}"></image>
+  <view hover-class="none">
+    <view class="product_item" wx:for="{{products}}" catchtap="viewDetail" data-productId="{{item.id}}">
+      <!-- <image class="p_avatar" src="{{item.coverImageUrl}}"></image> -->
+      <image class="p_avatar" src="/public/imgs/test.jpg"></image>
       <view class="p_content">
-        
         <view class="p_con_top">
-          <view class="title">{{item.title}}</view>
+          <view class="title">{{item.name}}</view>
           <view class="p_con_center">
             <view class="score">{{item.score}}分</view>
-            <text>已售{{item.sold_out_num}}笔</text>
-            <text class="ml20">{{item.start_time}}出发</text>
-            <text class="ml20">{{item.is_full?'客满':'有余位'}}</text>
+            <text>已售{{item.sold}}笔</text>
+            <text class="ml20">{{item.earliestDate}}出发</text>
           </view>
           <view class="df fz24 cg">
             <view class="provider right_xian">
-              <image class="provider_icon" src="/public/imgs/provider_icon.png"></image>
-              {{item.provider}}
+              {{item.supplierName}}
             </view>
-            <text class="right_xian  p_days">{{item.days}}</text>
-            <text class="">{{item.traffic}}</text>
+            <text class="right_xian  p_days">{{item.days}}天</text>
+            <text class="">{{item.transport}}</text>
           </view>
           <view class="props">
-            <view class="prop" wx:for="{{item.properties}}" wx:for-item="prop">{{prop}}</view>
+            <view class="prop">{{item.serviceEnsure}}</view>
           </view>
-          
         </view>
-
         <view class="salary">
           <view class="through_address">
-            途经:<text class="ml20" wx:for="{{item.through_address}}" wx:for-item="address">{{address}}</text>
+            <text class="ml20">途经：{{item.acrossPlace}} </text>
           </view>
-          <view>￥<text class="salary_style">{{item.salary}}</text>起/人</view>
+          <view>￥<text class="salary_style">{{item.adultPrice}}</text>起/人</view>
         </view>
 
       </view>
     </view>
-  </navigator>
+  </view>
 </scroll-view>
 
 <!-- 日期选择框 -->
 <view class="cu-modal {{modalName=='Image'?'show':''}}" bindtap='hideModal'>
   <view class="cu-dialog" catchtap>
     <view class="bg-img margin-top" style="height:345px;">
-      <v-calendar calendarConfig="{{calendarConfig}}" bind:afterTapDay="afterTapDay" bind:whenChangeMonth="whenChangeMonth" bind:onTapDay="onTapDay" bind:afterCalendarRender="afterCalendarRender"></v-calendar>
+      <v-calendar calendarConfig="{{calendarConfig}}" bind:afterTapDay="afterTapDay"
+        bind:whenChangeMonth="whenChangeMonth" bind:onTapDay="onTapDay" bind:afterCalendarRender="afterCalendarRender">
+      </v-calendar>
     </view>
     <view class="cu-bar bg-white">
       <view class="fc-theme action" style="font-size:26rpx" bindtap='hideModal'>{{handle_calendr}}</view>
@@ -89,11 +92,11 @@
 </view>
 
 <!-- 条件选择 -->
-<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}"
-style="background:rgba(0, 0, 0, 0.1);" bindtap='hideModal'>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="background:rgba(0, 0, 0, 0.1);"
+  bindtap='hideModal'>
   <view class="cu-dialog" catchtap>
 
-    <view  hidden="{{!(cur_condition_index==0)}}">
+    <view hidden="{{!(cur_condition_index==0)}}">
       <radio-group class="block">
         <view class='cu-list menu text-left'>
           <view class='cu-item' wx:for="{{sorts}}" wx:key>
@@ -106,7 +109,7 @@ style="background:rgba(0, 0, 0, 0.1);" bindtap='hideModal'>
       </radio-group>
     </view>
 
-    <view  hidden="{{!(cur_condition_index==1)}}">
+    <view hidden="{{!(cur_condition_index==1)}}">
       <view class="cu-bar bg-white pr bt-line">
         <view class="fc-theme action" style="font-size:26rpx">更多出发地</view>
         <view class="action">
@@ -148,7 +151,7 @@ style="background:rgba(0, 0, 0, 0.1);" bindtap='hideModal'>
       <view class='grid col-3 padding-sm'>
         <view wx:for="{{8}}" class='padding-xs' wx:key>
           <button class='cu-btn theme lg block {{index == 2?"bg":"line"}}-theme'>
-          {{index==7?'8天以上':index + 1}}天</button>
+            {{index==7?'8天以上':index + 1}}天</button>
         </view>
       </view>
     </view>
@@ -167,28 +170,29 @@ style="background:rgba(0, 0, 0, 0.1);" bindtap='hideModal'>
       </view>
     </view>
 
-    <view class="flex flex-direction bg-gray align-start pr filter" 
-    style="height:calc(100% - 210rpx);width:100%">
+    <view class="flex flex-direction bg-gray align-start pr filter" style="height:calc(100% - 210rpx);width:100%">
       <view class="margin-top-xs padding-sm flex flex-direction align-start bg-white">
         <view class="text-sm">自定义价格区间（元）</view>
-          <view class="flex margin-top align-center justify-between">
-            <input class="salary_input" placeholder="最低价"></input>
-            ~
-            <input class="salary_input" placeholder="最高价"></input>
-          </view>
+        <view class="flex margin-top align-center justify-between">
+          <input class="salary_input" placeholder="最低价"></input>
+          ~
+          <input class="salary_input" placeholder="最高价"></input>
+        </view>
       </view>
 
       <view class="margin-top-xs padding-sm flex flex-direction align-start bg-white">
         <view class="text-sm margin-bottom">服务保障<text class="text-xs text-gray">(多选)</text></view>
         <view class="flex flex-wrap">
-          <view wx:for="{{securitys}}" class="cu-tag radius lg line-black margin-right-sm margin-bottom-sm">{{item}}</view>
+          <view wx:for="{{securitys}}" class="cu-tag radius lg line-black margin-right-sm margin-bottom-sm">{{item}}
+          </view>
         </view>
       </view>
 
       <view class="margin-top-xs padding-sm flex flex-direction align-start bg-white">
         <view class="text-sm margin-bottom">交通方式<text class="text-xs text-gray">(多选)</text></view>
         <view class="flex flex-wrap">
-          <view wx:for="{{traffics}}" class="cu-tag radius lg line-black margin-right-sm margin-bottom-sm">{{item}}</view>
+          <view wx:for="{{traffics}}" class="cu-tag radius lg line-black margin-right-sm margin-bottom-sm">{{item}}
+          </view>
         </view>
       </view>
 
@@ -197,15 +201,15 @@ style="background:rgba(0, 0, 0, 0.1);" bindtap='hideModal'>
         <view class="flex flex-wrap">
           <view wx:for="{{days}}" class="cu-tag radius lg line-black margin-right-sm margin-bottom-sm">{{item}}</view>
         </view>
-      </view>   
+      </view>
     </view>
 
 
     <view class="filter_bto bg-white cu-bar flex justify-between">
-        <view class="fc-theme action" style="font-size:26rpx">重置</view>
-        <view class="action">
-          <button class='cu-btn bg-theme shadow'>查看20条产品</button>
-        </view>
+      <view class="fc-theme action" style="font-size:26rpx">重置</view>
+      <view class="action">
+        <button class='cu-btn bg-theme shadow'>查看20条产品</button>
+      </view>
     </view>
 
   </view>

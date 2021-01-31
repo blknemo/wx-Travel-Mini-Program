@@ -1,70 +1,48 @@
 <view class="bg-white flex justify-between align-center padding-lr">
-  <scroll-view scrbg-whiteoll-x class=" nav" scroll-with-animation 
-  scroll-left="{{scrollLeft}}" style="width:50%">
-  <view class="cu-item {{index==TabCur?'text-theme cur':''}}" wx:for="{{tabList}}" wx:key bindtap='tabSelect' data-id="{{index}}" >
-    {{item}}
-  </view>
+  <scroll-view scrbg-whiteoll-x class=" nav" scroll-with-animation scroll-left="{{scrollLeft}}" style="width:50%">
+    <view class="cu-item {{index==TabCur?'text-theme cur':''}}" wx:for="{{tabList}}" wx:key bindtap='tabSelect'
+      data-id="{{index}}">
+      {{item}}
+    </view>
   </scroll-view>
-  <text class="text-init">
+  <view>
     <block wx:if="{{TabCur == 0}}">
       <text>编辑</text>
     </block>
     <block wx:else>
-      <text>清空</text>
+      <view bindtap="deleteHistory">
+        <text>清空</text>
+      </view>
     </block>
-  </text>
+  </view>
 </view>
 
 <view class="padding">
   <block wx:if="{{TabCur == 0}}">
 
     <view class="bg-white radius flex padding-sm margin-bottom-sm" wx:for="{{collections}}">
-      <block wx:if="{{item.type == 1}}">
-        <view class="pr margin-right-sm">
-          <view class="tip bg-theme">度假</view>
-          <image class="avatar radius-lg " src="{{item.avatar}}"></image>
-        </view>
-        <view class="" style="width:calc(100% - 160rpx)">
-          <view>{{item.title}}</view>
-          <view class="text-right text-price text-red text-lg">{{item.price}}</view>
-        </view>
-      </block>
-      <block wx:else>
-        <view class="pr margin-right-sm">
-          <view class="tip bg-theme">杂谈</view>
-          <image class="avatar radius-lg " src="{{item.avatar}}"></image>
-        </view>
-        <view class="" style="width:calc(100% - 160rpx)">
-          <view>{{item.title}}</view>
-          <view class="text-gray text-sm margin-top-sm">{{item.city}}</view>
-        </view>
-      </block>
+      <view class="pr margin-right-sm">
+        <view class="tip bg-theme">编号：{{item.goodsId}}</view>
+        <image class="avatar radius-lg " src="{{item.goodsCoverImageUrl}}"></image>
+      </view>
+      <view class="" style="width:calc(100% - 160rpx)">
+        <view>{{item.goodsName}}</view>
+        <view class="text-right text-lg">收藏时间：{{item.createTime}}</view>
+      </view>
     </view>
 
   </block>
   <block wx:else>
 
-    <view class="bg-white radius flex padding-sm margin-bottom-sm" wx:for="{{view_historys}}">
-      <block wx:if="{{item.type == 1}}">
-        <view class="pr margin-right-sm">
-          <view class="tip bg-theme">度假</view>
-          <image class="avatar radius-lg " src="{{item.avatar}}"></image>
-        </view>
-        <view class="" style="width:calc(100% - 160rpx)">
-          <view>{{item.title}}</view>
-          <view class="text-right text-price text-red text-lg">{{item.price}}</view>
-        </view>
-      </block>
-      <block wx:else>
-        <view class="pr margin-right-sm">
-          <view class="tip bg-theme">杂谈</view>
-          <image class="avatar radius-lg " src="{{item.avatar}}"></image>
-        </view>
-        <view class="" style="width:calc(100% - 160rpx)">
-          <view>{{item.title}}</view>
-          <view class="text-gray text-sm margin-top-sm">{{item.city}}</view>
-        </view>
-      </block>
+    <view class="bg-white radius flex padding-sm margin-bottom-sm" wx:for="{{historys}}">
+      <view class="pr margin-right-sm">
+        <view class="tip bg-theme">编号：{{item.goodsId}}</view>
+        <image class="avatar radius-lg " src="{{item.goodsCoverImageUrl}}"></image>
+      </view>
+      <view class="" style="width:calc(100% - 160rpx)">
+        <view>{{item.goodsName}}</view>
+        <view class="text-right text-lg">记录时间：{{item.createTime}}</view>
+      </view>
     </view>
 
   </block>

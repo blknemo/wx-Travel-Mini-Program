@@ -2,33 +2,15 @@
 <view class="header padding-tb">
   <block wx:for="{{modules}}" wx:key="{{index}}">
     <navigator url="{{item.url}}" hover-class="none">
-      <view class="item" >
-          <view class="module {{item.bg}}"><image class="module_img " src="{{item.icon}}"></image></view>
-          <text>{{item.name}}</text>
+      <view class="item">
+        <view class="module {{item.bg}}">
+          <image class="module_img " src="{{item.icon}}"></image>
+        </view>
+        <text>{{item.name}}</text>
       </view>
     </navigator>
   </block>
 </view>
-
-
-<!-- <view class="features">
-  <text class="feature_text">旅游资讯</text>
-  <swiper class="feature_swiper"  vertical="true" autoplay="{{true}}" circular="true" interval="5000">
-    <swiper-item class="swiper_item" wx:for="{{features}}" wx:key="{{index}}">
-      {{item}}
-    </swiper-item>
-  </swiper>
-  <view class="feature_detail">详情>></view>
-</view>
-<view class="spots">
-  <view class="text-init text-xl text-bold" style="text-align:center">平台特色</view>
-  <image class="title_img" src="/public/imgs/spot.jpg"></image>
-  <view  class="spot" wx:for="{{spots}}">
-    <view id="pointer" class="sign">{{item.name}}</view>
-    <view class="content">{{item.content}}</view>
-  </view>
-</view> -->
-
 
 <view class="spots">
   <view class="text-init text-xl text-bold" style="text-align:center">热门景点</view>
@@ -37,25 +19,28 @@
     <view id="pointer" class="sign">{{item.name}}</view>
     <view class="content">{{item.content}}</view>
   </view> -->
-  <view class="item radius bg-white margin-bottom-sm" wx:for="{{data}}" wx:key catchtap="viewDetail">
-    <view class="pr">
-      <image class="avatar" src="{{item.avatar}}"></image>
+  <view class="item radius bg-white margin-bottom-sm" wx:for="{{datas}}" >
+    <view class="pr" data-id="{{item.id}}" catchtap="viewDetail">
+      <!-- <image class="avatar" src="{{item.coverImageUrl}}"></image> -->
+      <image class="avatar" src="/public/imgs/test.jpg"></image>
       <view class="des text-sm flex padding-lr ">
         <view class="df">
-          <view class="provider right_xian text-lg">
+          <view class="provider right_xian text-lg" style="max-width:50%">
             <text class="icon-home text-xxl text-bold mr5"></text>
-            <text class="text-sm">{{item.provider}}</text>
+            <text class="text-sm text-name">{{item.name}}</text>
           </view>
-          <text class="right_xian  p_days">{{item.days}}</text>
-          <text class="right_xian">{{item.traffic}}</text>
-          <text class="ml30">{{item.is_full?'客满':'有余位'}}</text>
+          <text class="right_xian  p_days">{{item.days}}天</text>
+          <text class="right_xian">{{item.transport}}</text>
+          <text class="ml30">{{item.score}}分</text>
         </view>
       </view>
       <view class="through_address text-sm padding-lr">
-        途经:<text class="ml20" wx:for="{{item.through_address}}" wx:for-item="address">{{address}}</text>
+        <text class="ml20">始发：{{item.beginPlace}} </text>
+        <text class="ml20">途经：{{item.accrosPlace}} </text>
+        <text class="ml20">目的地：{{item.endPlace}} </text>
       </view>
     </view>
-    
+
     <!-- <view class="flex flex-direction padding-tb-xs padding-lr-sm ">
         <text class="title text-cut">{{item.title}}</text>
         <view class="p_con_top">
