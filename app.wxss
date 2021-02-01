@@ -219,3 +219,9 @@
     transform: translateY(0px);
   }
 }
+
+
+
+span.warn {
+  color: red;
+}

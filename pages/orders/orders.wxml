@@ -5,52 +5,74 @@
 </scroll-view>
 
 <view class="padding-lr-sm margin-top">
-  <view wx:for="{{orders}}" hidden="{{!(item.state_id == TabCur) && TabCur != 0}}">
-    <view class="bg-white text-red margin-bottom-sm padding-tb padding-left-xs" wx:if="{{item.state_id == 2 && TabCur != 0}}">友情提示：待接订单商家将在工作时间2小时内接单</view>
+  <view wx:for="{{orders}}" hidden="{{!(item.state == TabCur) && TabCur != 0}}">
+    <view class="bg-white text-red margin-bottom-sm padding-tb padding-left-xs" wx:if="{{item.state == 2 && TabCur != 0}}">友情提示：待接订单商家将在工作时间2小时内接单</view>
     <view class="flex flex-direction bg-white margin-bottom-sm radius" >
       <view class="flex align-center justify-between padding-lr-sm padding-top-sm">
         <text class="text-bold ">
           <text class="icon-shop margin-right-xs text=gray"></text>
-          <text class="text-init">{{item.provider}}</text>
+          <!-- 供应商名称，这里需要从商品goods里面拿 -->
+          <text class="text-init">{{item.supplierId}}</text>
         </text>
-        <text class="text-red text-sm">{{item.state}}</text>
+        <!-- <text class="text-red text-sm">{{item.state}}</text> -->
+        <text class="text-red text-sm">{{tools.showStateName(item.state)}}</text>
       </view>
 
       <view class="flex padding-sm">
-        <image class="avatar margin-right-sm" src="{{item.avatar}}"></image>
+        <!-- 商品图片，这里要从商品里面拿 -->
+        <image class="avatar " src="{{item.avatar}}/public/imgs/test.jpg"></image>
+        <!-- 目的地 -->
         <view class=" flex flex-direction justify-between" style="width:calc(100% - 140rpx)">
-          <view class="text-init text-df text-cut">{{item.title}}</view>
+          <!-- 商品名称，这里要从商品里面拿 -->
+          <view class="text-init text-df text-cut">{{item.title}}三亚</view>
           <view class="text-gray text-sm">
-            <text class="right_xian">{{item.days}}</text>
-            <text class="margin-lr right_xian">{{item.traffic}}</text>
-            <text class="">{{item.start_time}}出发</text>
+            <!-- 商品天数，这里要从商品里面拿 -->
+            <text class="right_xian">{{item.days}}6天5晚</text>
+            <!-- 商品交通，这里要从商品里面拿 -->
+            <text class="margin-lr right_xian">{{item.traffic}}动车往返</text>
+            <!-- 出行时间 -->
+            <text class="">{{item.startDate}}出发</text>
           </view>
-          <view class="text-gray text-sm">下单时间：{{item.take_order_time}}</view>
+          <view class="text-gray text-sm">下单时间：{{item.createTime}}</view>
         </view>
       </view>
 
       <view class="flex justify-end text-lg padding-lr-sm ">
-        <text class="text-sm">共2人出行合计：</text><text class="text-price text-red">3200</text>
+        <text class="text-sm">共 {{item.adultSum}} 位成人和 {{item.childSum}} 位儿童出行，合计：</text>
+        <text class="text-price text-red">{{item.totalPrice}}</text>
       </view>
 
+      <view class="flex justify-end text-lg padding-lr-sm ">
+        <text class="text-sm ">共2人助力已减：</text>
+        <text class="text-price text-red ">{{item.discount}}</text>
+        <text class="text-sm ">，优惠后合计：</text>
+        <text class="text-price text-red ">{{item.totalPrice - item.discount}}</text>
+      </view>
+      
+      
+
+      <!-- 按钮 -->
       <view class="flex justify-end padding-lr-sm padding-bottom-sm padding-top-sm">
       
-        <block wx:if="{{item.state_id == 1 || item.state_id == 2}}">
-          <button class="cu-btn line-red round df">取消订单</button>
+        <block wx:if="{{item.state == 1}}">
+          <button class="cu-btn line-red round df margin-right" bindtap="helpOrder" data-id="{{item.id}}">好友助力</button>
         </block>
-        <block wx:elif="{{item.state_id == 3}}">
-          <button class="cu-btn line-red round df">申请退款</button>
+        <block wx:if="{{item.state == 1 || item.state == 2}}">
+          <button class="cu-btn line-red round df" bindtap="cancelOrder" data-id="{{item.id}}">取消订单</button>
         </block>
-        <block wx:elif="{{item.state_id == 4}}">
-          <button class="cu-btn line-red round df margin-right">申诉</button>
-          <button class="cu-btn line-red round df margin-right">删除订单</button>
-          <button class="cu-btn line-red round df margin-right" catchtap="toInvoice">申请发票</button>
-          <button class="cu-btn line-red round df" catchtap="toOrderEva">评价</button>
+        <block wx:elif="{{item.state == 3}}">
+          <button class="cu-btn line-red round df" bindtap="delOrder" data-id="{{item.id}}">申请退款</button>
         </block>
-        <block wx:elif="{{item.state_id == 5}}">
-          <button class="cu-btn line-red round df">删除订单</button>
+        <block wx:elif="{{item.state == 4}}">
+          <!-- <button class="cu-btn line-red round df margin-right">申诉</button> -->
+          <button class="cu-btn line-red round df margin-right" bindtap="delOrder" data-id="{{item.id}}">删除订单</button>
+          <!-- <button class="cu-btn line-red round df margin-right" catchtap="toInvoice">申请发票</button> -->
+          <button class="cu-btn line-red round df" catchtap="toOrderEva" data-id="{{item.id}}">评价</button>
         </block>
-        <block wx:elif="{{item.state_id == 6}}">
+        <block wx:elif="{{item.state == 5}}">
+          <button class="cu-btn line-red round df" bindtap="delOrder" data-id="{{item.id}}">删除订单</button>
+        </block>
+        <block wx:elif="{{item.state == 6}}">
           <button class="cu-btn line-red round df">查看进度</button>
         </block>
         <block wx:else>
@@ -62,3 +84,34 @@
     </view>
   </view>
 </view>
+
+
+
+<wxs module="tools">
+  var showStateName = function (state) {
+    switch(state) {
+      case 1:
+        return '待付款';
+      case 2:
+        return '待接单';
+      case 3:
+        return '待出行';
+      case 4:
+        return '已出行';
+      case 5:
+        return '退款中';
+      case 6:
+        return '已退款';
+      case 7:
+        return '已取消';
+      default: 
+        return;
+    }
+  };
+ 
+  module.exports = {
+    showStateName: showStateName,
+  }
+
+  
+</wxs>

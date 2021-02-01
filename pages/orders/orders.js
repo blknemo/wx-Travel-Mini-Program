@@ -1,3 +1,4 @@
+let app = getApp();
 
 Page({
 
@@ -144,8 +145,24 @@ Page({
   },
 
   onLoad: function (options) {
-    if(options.tab_index)
+    var that = this;
+    console.log(options);
+    if(options.tab_index) {
       this.setData({TabCur:options.tab_index})
+    }
+
+    wx.request({
+      // url: 'http://localhost:8082/orders/orders/' + app.globalData.openId + '?state=' + that.data.TabCur,
+      url: 'http://localhost:8082/orders/orders/222' + '?state=' + that.data.TabCur,
+      method: 'GET',
+      success(res) {
+        console.log(res.data.data.records);
+        that.setData({
+          orders: res.data.data.records
+        })
+      }
+    })
+
   },
 
   tabSelect(e) {
@@ -165,6 +182,29 @@ Page({
     wx.navigateTo({
       url: '/pages/order_eva/order_eva',
     })
-  }
+  },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  helpOrder(e) {
+    // 得到订单id
+    console.log(e.currentTarget.dataset.id);
+
+    wx.redirectTo({
+      url: '/pages/help/help?orderId=' + e.currentTarget.dataset.id,
+    })
+  }
+  
 })

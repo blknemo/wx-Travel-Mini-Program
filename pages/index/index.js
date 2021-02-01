@@ -43,53 +43,62 @@ Page({
                 that.setData({
                     userInfo: res.userInfo
                 });
-                app.globalData.userInfo = res.userInfo;
-                wx.login({
-                    success: res => {
-                        // 获取到用户的 code 之后：res.code
-                        console.log("用户的code:" + res.code);
-                        // 可以传给后台，再经过解析获取用户的 openid
-                        // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
+
+                /**这里的request我本来是放在外面的，可是不行，
+                 * 我本以为上面的request会依次执行下面的语句，包括success，可是不是这样的；
+                 * 经过测试，我发现在上一个request成功返回openid之前，这条request就已经执行了，
+                 * 说明上一条request是异步的，请求完之后就不管了，
+                 * 接着执行下面的语句，等请求成功之后才执行success */
+                wx.request({
+                  // url: 'http://localhost:8080/test/loginDemo',
+                  url: 'http://localhost:8082/user/user',
+                  method: 'POST',
+                  // header: {
+                  //   'content-type': 'application/x-www-form-urlencoded'
+                  // },
+                  data: {
+                    id: app.globalData.openid,
+                    name: app.globalData.userInfo.nickName,
+                    iconUrl: app.globalData.userInfo.avatarUrl
+                  },
+                  /*
+                  success() {
+                    // 登录成功之后填写登录日志记录表login_log
+                    //os, browser, system
+                    wx.getSystemInfo({
+                      success: (result) => {
+                        app.globalData.loginInfo.os = result.system;
+                        app.globalData.loginInfo.browser = '微信小程序';
+                        app.globalData.loginInfo.system = '微信小程序客户端';
+                      },
+                    });
+                    // ip
+                    wx.request({
+                      url: 'http://ip-api.com/json',
+                      method: 'GET',
+                      success(res) {
+                        app.globalData.loginInfo.userId = app.globalData.openid;
+                        app.globalData.loginInfo.ip = res.data.query;
+                        app.globalData.loginInfo.city = res.data.city;
+                        console.log(app.globalData.loginInfo.ip);
+                        console.log(app.globalData.loginInfo);
                         wx.request({
-                            // 自行补上自己的 APPID 和 SECRET
-                            // GET https://api.weixin.qq.com/sns/jscode2session?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
-                            url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wxd947db7bfd81dbc1&secret=e32ca2bfb5d6eb7da1b2d92d48f34c56&js_code=' + res.code + '&grant_type=authorization_code',
-                            method: 'GET',
-                            success: res => {
-                                // 获取到用户的 openid
-                                console.log("用户的openid:" + res.data.openid);
-
-                                // 如果不是很明白这里为什么用that
-                                // https://blog.csdn.net/weixin_46363283/article/details/106690558
-                                // that.setData({
-                                //     openid: res.data.openid
-                                // });
-                                app.globalData.openid = res.data.openid;
-                                console.log(app.globalData.openid);
-                                that.setData({
-                                    openid: app.globalData.openid
-                                }),
-
-                                /**这里的request我本来是放在外面的，可是不行，
-                                 * 我本以为上面的request会依次执行下面的语句，包括success，可是不是这样的；
-                                 * 经过测试，我发现在上一个request成功返回openid之前，这条request就已经执行了，
-                                 * 说明上一条request是异步的，请求完之后就不管了，
-                                 * 接着执行下面的语句，等请求成功之后才执行success */
-                                wx.request({
-                                    // url: 'http://localhost:8080/test/loginDemo',
-                                    url: 'http://localhost:8082/user/user',
-                                    method: 'POST',
-                                    // header: {
-                                    //   'content-type': 'application/x-www-form-urlencoded'
-                                    // },
-                                    data: {
-                                        id: app.globalData.openid
-                                    }
-                                });
-                                
-                            }
-                        });
-                    }
+                          url: 'http://localhost:8082/user/loginlog',
+                          method: 'POST',
+                          data: {
+                            // loginLog: app.globalData.loginInfo
+                            userId: app.globalData.loginInfo.userId,
+                            ip: app.globalData.loginInfo.ip,
+                            os: app.globalData.loginInfo.os,
+                            browser: app.globalData.loginInfo.browser,
+                            system: app.globalData.loginInfo.system,
+                            city: app.globalData.loginInfo.city
+                          }
+                        })
+                      }
+                    });
+                  }
+                  */
                 });
             }
         });
