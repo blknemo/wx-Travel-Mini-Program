@@ -19,7 +19,6 @@
 
 <view class="padding">
   <block wx:if="{{TabCur == 0}}">
-
     <view class="bg-white radius flex padding-sm margin-bottom-sm" wx:for="{{collections}}">
       <view class="pr margin-right-sm">
         <view class="tip bg-theme">编号：{{item.goodsId}}</view>
@@ -30,10 +29,8 @@
         <view class="text-right text-lg">收藏时间：{{item.createTime}}</view>
       </view>
     </view>
-
   </block>
   <block wx:else>
-
     <view class="bg-white radius flex padding-sm margin-bottom-sm" wx:for="{{historys}}">
       <view class="pr margin-right-sm">
         <view class="tip bg-theme">编号：{{item.goodsId}}</view>
@@ -44,7 +41,6 @@
         <view class="text-right text-lg">记录时间：{{item.createTime}}</view>
       </view>
     </view>
-
   </block>
 
 </view>

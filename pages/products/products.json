@@ -2,6 +2,6 @@
   "usingComponents": {
     "v-calendar":"/components/calendar/index"
   },
-  "navigationBarTitleText": "产品列表",
+  "navigationBarTitleText": "旅游项目列表",
   "navigationBarTextStyle": "white"
 }

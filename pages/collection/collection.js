@@ -8,11 +8,11 @@ Page({
     scrollLeft: 0,
     collectionPage: {
       pageNum: 1,
-      pageSize: 5
+      pageSize: 6,
     },
     historyPage: {
       pageNum: 1,
-      pageSize: 5
+      pageSize: 6
     },
     collections: [],
     historys: [],
@@ -40,6 +40,16 @@ Page({
   },
 
   onShow: function () {},
+  onReachBottom: function () {
+    var that = this
+    if (that.data.TabCur == 0) {
+      console.log("上拉加载收藏")
+      this.loadCollections(that)
+    } else if (that.data.TabCur == 1) {
+      console.log("上拉加载足迹")
+      this.loadHistories(that)
+    }
+  },
   getCollection(e) {
     var that = this
     wx.request({
@@ -82,7 +92,7 @@ Page({
       }
     })
   },
-  deleteHistory(e){
+  deleteHistory(e) {
     var that = this
     console.log("delete")
     wx.request({
@@ -106,6 +116,56 @@ Page({
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+    })
+  },
+  loadCollections(that) {
+    that.data.collectionPage.pageNum++
+    wx.request({
+      url: 'http://localhost:8082/collection/list',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        id: app.globalData.openid,
+        pageNum: that.data.collectionPage.pageNum,
+        pageSize: that.data.collectionPage.pageSize
+      },
+      success: res => {
+        console.log(res.data.data.records)
+        var list = that.data.collections
+        for (var i = 0; i < res.data.data.records.length; i++) {
+          list.push(res.data.data.records[i])
+        }
+        that.setData({
+          collections: list
+        })
+      }
+    })
+  },
+  loadHistories(that) {
+    that.data.historyPage.pageNum++
+    wx.request({
+      url: 'http://localhost:8082/history/list',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        id: app.globalData.openid,
+        pageNum: that.data.historyPage.pageNum,
+        pageSize: that.data.historyPage.pageSize
+      },
+      success: res => {
+        console.log(res.data.data.records)
+        var list = that.data.historys
+        for (var i = 0; i < res.data.data.records.length; i++) {
+          list.push(res.data.data.records[i])
+        }
+        that.setData({
+          historys: list
+        })
+      }
     })
   }
 

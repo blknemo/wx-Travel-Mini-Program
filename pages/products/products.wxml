@@ -40,7 +40,7 @@
     {{item}}
   </view>
 </view> -->
-<scroll-view class="products" scroll-y>
+<scroll-view class="products" scroll-y bindscrolltolower="loadProducts"> 
   <view hover-class="none">
     <view class="product_item" wx:for="{{products}}" catchtap="viewDetail" data-productId="{{item.id}}">
       <!-- <image class="p_avatar" src="{{item.coverImageUrl}}"></image> -->

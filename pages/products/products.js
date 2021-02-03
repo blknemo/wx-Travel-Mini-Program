@@ -8,7 +8,8 @@ Page({
     cur_condition_index: 0,
     pageInfo: {
       pageNum: 1,
-      pageSize: 5
+      pageSize: 5,
+      type: 1
     },
     sorts: [{
         label: "综合排序",
@@ -62,20 +63,48 @@ Page({
       modalName: null
     })
   },
-  viewDetail:function(event){
+  viewDetail: function (event) {
     var id = event.currentTarget.dataset.productid
     wx.navigateTo({
-      url: '/pages/product_detail/product_detail?id='+id,
+      url: '/pages/product_detail/product_detail?id=' + id,
+    })
+  },
+  loadProducts() {
+    var that = this
+    that.data.pageInfo.pageNum++;
+    console.log(that.data.pageInfo.pageNum)
+    wx.request({
+      url: 'http://localhost:8082/goods/list',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        pageNum: that.data.pageInfo.pageNum,
+        pageSize: that.data.pageInfo.pageSize,
+        type: that.data.pageInfo.type
+      },
+      success: res => {
+        console.log(res.data.data.records)
+        var list = that.data.products
+        for (var i = 0; i < res.data.data.records.length; i++) {
+          list.push(res.data.data.records[i])
+        }
+        that.setData({
+          products: list
+        })
+      }
     })
   },
 
   onLoad: function (options) {
     console.log(options)
     var that = this
+    that.data.pageInfo.type = options.type
     wx.request({
       url: 'http://localhost:8082/goods/list',
       method: 'POST',
-      header:{
+      header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
@@ -83,10 +112,10 @@ Page({
         pageSize: that.data.pageInfo.pageSize,
         type: options.type
       },
-      success: res=>{
+      success: res => {
         console.log(res.data.data.records)
         that.setData({
-          products:res.data.data.records,
+          products: res.data.data.records,
         })
       }
     })

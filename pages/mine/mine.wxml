@@ -49,13 +49,13 @@
     <view class="flex align-center justify-around padding">
 
       <view class="flex flex-direction align-center" catchtap="toCollection" data-type="0">
-        <text class="text-theme margin-bottom-xs">4</text><text>收藏</text>
+        <text class="text-theme margin-bottom-xs">{{collectionNum}}</text><text>收藏</text>
       </view>
 
       <view class="right_xian"></view>
 
       <view class="flex flex-direction align-center" catchtap="toCollection" data-type="1">
-        <text class="text-theme margin-bottom-xs">12</text><text>足迹</text>
+        <text class="text-theme margin-bottom-xs">{{historyNum}}</text><text>足迹</text>
       </view>
 
       <view class="right_xian"></view>
