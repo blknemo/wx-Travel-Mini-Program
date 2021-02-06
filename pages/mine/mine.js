@@ -27,7 +27,7 @@ Page({
     }, {
       icon: 'noticefill',
       color: 'olive',
-      badge: 22,
+      badge: 0,
       name: '行程通知',
       url: "/pages/notice_msg/notice_msg"
     }, {
@@ -96,6 +96,21 @@ Page({
         console.log(res)
         that.setData({
           historyNum: res.data
+        })
+      }
+    })
+    wx.request({
+      url: 'http://localhost:8082/orders/notice/count',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        id: app.globalData.openid,
+      },
+      success: res => {
+        that.setData({
+          ['iconList[3].badge']:res.data
         })
       }
     })

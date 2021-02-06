@@ -4,23 +4,23 @@
     <view class="flex align-center justify-between padding-lr-sm padding-top-sm">
       <text class="text-bold ">
         <text class="icon-shop margin-right-xs text=gray"></text>
-        <text class="text-init">{{item.provider}}</text>
+        <text class="text-init">{{item.supplierName}}</text>
       </text>
       <view class="flex justify-end  padding-lr-sm ">
         <text class="text-sm">
-          <text class="text-red text-lg margin-right-xs">{{item.start_time}}</text>出团通知
+          <text class="text-red text-lg margin-right-xs">{{item.startDate}}</text>出团通知
         </text>
       </view>
     </view>
 
     <view class="flex align-center padding-sm solid-bottom">
-      <image class="avatar margin-right-sm" src="{{item.avatar}}"></image>
+      <image class="avatar margin-right-sm" src="{{item.coverImageUrl}}"></image>
       <view class=" flex flex-direction justify-between" style="width:calc(100% - 140rpx);height:100rpx">
-        <view class="text-init text-df text-cut">{{item.title}}</view>
+        <view class="text-init text-df text-cut">{{item.goodsName}}</view>
         <view class="text-gray text-sm">
-          <text class="right_xian">{{item.days}}</text>
-          <text class="margin-lr right_xian">{{item.traffic}}</text>
-          <text class="">{{item.start_address}}至{{item.destination}}</text>
+          <text class="right_xian">{{item.days}}天</text>
+          <text class="margin-lr right_xian">{{item.transport}}</text>
+          <text class="">{{item.beginPlace}}至{{item.endPlace}}</text>
         </view>
         <!-- <view class="text-gray text-sm">下单时间：{{item.take_order_time}}</view> -->
       </view>

@@ -54,12 +54,6 @@
       },
       {
         "selectedIconPath": "public/imgs/mine_on.png",
-        "pagePath": "pages/notice_msg/notice_msg",
-        "iconPath": "public/imgs/mine.png",
-        "text": "行程"
-      },
-      {
-        "selectedIconPath": "public/imgs/mine_on.png",
         "pagePath": "pages/mine/mine",
         "iconPath": "public/imgs/mine.png",
         "text": "我的"
