@@ -1,0 +1,58 @@
+<!--pages/orderInfo/order_info.wxml-->
+<block>
+
+  <view class="card_md">
+    <view class="col_title solid-bottom">
+      <text>商品信息</text>
+    </view>
+
+    <view class="name">
+      <text>供应商名称</text>
+      <text class="text_input">{{order.supplierName}}</text>
+    </view>
+    <view class="name">
+      <text>商品名称</text>
+      <text class="text_input text-cut">{{order.name}}</text>
+    </view>
+    <view class="name">
+      <text>出行天数</text>
+      <text class="text_input">{{order.days}}</text>
+    </view>
+    <view class="name">
+      <text>出行方式</text>
+      <text class="text_input">{{order.transport}}</text>
+    </view>
+    <view class="name">
+      <text>出行日期</text>
+      <text class="text_input">{{order.startDate}}</text>
+    </view>
+  </view>
+
+  <view class="card_md">
+    <view class="col_title solid-bottom">
+      <text>订单信息</text>
+    </view>
+
+    <view class="name">
+      <text>明细价格</text>
+      <text class="text_input">成人：{{order.adultSum}} * <text class="text_input text-price text-red">{{order.adultPrice}}</text>，儿童：{{order.childSum}} * <text class="text_input text-price text-red">{{order.childPrice}}</text> + 额外：<text class="text_input text-price text-red">{{order.otherExpense}}</text></text>
+    </view>
+    <view class="name">
+      <text>原本价格</text>
+      <text class="text_input text-price text-red">{{order.totalPrice}}</text>
+    </view>
+    <view class="name">
+      <text>助力人数</text>
+      <text class="text_input">{{order.helpNum}}</text>
+    </view>
+    <view class="name">
+      <text>助力金额</text>
+      <text class="text_input text-price text-red">{{order.discount}}</text>
+    </view>
+    <view class="name">
+      <text>优惠价格</text>
+      <text class="text_input text-price text-red">{{order.totalPrice - order.discount}}</text>
+    </view>
+  </view>
+
+</block>
