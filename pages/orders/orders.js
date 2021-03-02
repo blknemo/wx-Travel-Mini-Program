@@ -5,7 +5,8 @@ Page({
   data: {
     TabCur:0,
     scrollLeft:0,
-    menus:["全部","待付款","待接单","待出行","已出行","退款单"],
+    // menus:["全部","待付款","待接单","待出行","已出行","退款单"],
+    menus:["全部","待付款","待接单","待出行","已出行","退款中","已退款","已取消"],
     orders:[
       {
         "avatar":"/public/imgs/test.jpg",
@@ -146,9 +147,13 @@ Page({
 
   onLoad: function (options) {
     var that = this;
+    console.log("订单！！！！！！！！！！！！！！！！！");
     console.log(options);
-    if(options.tab_index) {
-      this.setData({TabCur:options.tab_index})
+    if(options != null && options.tab_index) {
+      this.setData({
+        TabCur:options.tab_index,
+        option: options
+      })
     }
 
     wx.request({
@@ -156,13 +161,32 @@ Page({
       url: 'http://localhost:8082/orders/orders/222' + '?state=' + that.data.TabCur,
       method: 'GET',
       success(res) {
-        console.log(res.data.data.records);
+        // console.log(res.data.data.records);
+        console.log(res.data.data);
         that.setData({
-          orders: res.data.data.records
+          // orders: res.data.data.records
+          orders: res.data.data
         })
       }
     })
 
+  },
+
+  onShow(options) {
+    var that = this;
+    wx.request({
+      // url: 'http://localhost:8082/orders/orders/' + app.globalData.openId + '?state=' + that.data.TabCur,
+      url: 'http://localhost:8082/orders/orders/222' + '?state=' + that.data.TabCur,
+      method: 'GET',
+      success(res) {
+        // console.log(res.data.data.records);
+        console.log(res.data.data);
+        that.setData({
+          // orders: res.data.data.records
+          orders: res.data.data
+        })
+      }
+    })
   },
 
   tabSelect(e) {
@@ -170,6 +194,7 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
+    this.onLoad(this.data.options);
   },
 
   toInvoice(){
@@ -198,12 +223,68 @@ Page({
 
 
 
+  /**
+   * 好友助力
+   * @param {} e 
+   */
   helpOrder(e) {
     // 得到订单id
     console.log(e.currentTarget.dataset.id);
 
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/help/help?orderId=' + e.currentTarget.dataset.id,
+    })
+  },
+
+  /**
+   * 删除订单
+   * @param {*} e 
+   */
+  delOrder(e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8082/orders/order/' + e.currentTarget.dataset.id,
+      method: 'DELETE',
+      success() {
+        that.onLoad(that.data.options);
+      }
+    })
+  },
+
+  /**
+   * 退款，订单状态：1待付款，2待接单，3待出行，4已出行，5退款中，6已退款，7已取消
+   * @param {*} e 
+   */
+  refundOrder(e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8082/orders/order/' + e.currentTarget.dataset.id + '/5',
+      method: 'PUT',
+      success() {
+        that.onLoad(that.data.options);
+      }
+    })
+  },
+
+  /**
+   * 取消订单，订单状态：1待付款，2待接单，3待出行，4已出行，5退款中，6已退款，7已取消
+   * @param {*} e 
+   */
+  cancelOrder(e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8082/orders/order/' + e.currentTarget.dataset.id + '/7',
+      method: 'PUT',
+      success() {
+        that.onLoad(that.data.options);
+      }
+    })
+  },
+
+  toOrderInfo(e) {
+    console.log(e.currentTarget.dataset.id);
+    wx.navigateTo({
+      url: '/pages/order_info/order_info?id=' + e.currentTarget.dataset.id
     })
   }
   

@@ -263,6 +263,7 @@ Page({
       success(res) {
         console.log(res.data.data);
         that.setData({
+          order: res.data.data,
           allDiscount: res.data.data.discount,
           helpNum: res.data.data.helpNum
         })
