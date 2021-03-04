@@ -24,7 +24,23 @@ Page({
   },
 
   onReady: function () {
-    this.calendar.enableArea(['2020-4-02', '2020-8-30']);
+    var earliestDate = wx.getStorageSync("earliestDate");
+    var latestDate = wx.getStorageSync("latestDate");
+    console.log(earliestDate);
+    console.log(latestDate);
+
+    this.calendar.enableArea([earliestDate, latestDate]);
+
+    // 价格
+    var adultPrice = wx.getStorageSync('adultPrice');
+    var childPrice = wx.getStorageSync('childPrice');
+    var otherExpense = wx.getStorageSync('otherExpense')
+
+    this.setData({
+      adultPrice,
+      childPrice,
+      otherExpense
+    })
   },
 
   showModal(e) {
@@ -42,6 +58,18 @@ Page({
     wx.navigateTo({
       url: '/pages/linkman_select/linkman_select',
     })
+  },
+
+  afterTapDay(e) {
+    console.log(e.detail);
+    var startDate = e.detail.year + '-' + e.detail.month + '-' + e.detail.day
+    wx.setStorageSync('startDate', startDate)
+    console.log(startDate);
+
+  },
+  afterCalendarRender(e) {
+    console.log(e.detail);
+    
   }
 
 })

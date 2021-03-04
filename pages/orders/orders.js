@@ -1,4 +1,4 @@
-let app = getApp();
+const app = getApp();
 
 Page({
 
@@ -156,9 +156,11 @@ Page({
       })
     }
 
+    console.log("openId!!!!!!!!!!!!!!!");
+    console.log(app.globalData.openid)
     wx.request({
-      // url: 'http://localhost:8082/orders/orders/' + app.globalData.openId + '?state=' + that.data.TabCur,
-      url: 'http://localhost:8082/orders/orders/222' + '?state=' + that.data.TabCur,
+      url: 'http://localhost:8082/orders/orders/' + app.globalData.openid + '?state=' + that.data.TabCur,
+      // url: 'http://localhost:8082/orders/orders/222' + '?state=' + that.data.TabCur,
       method: 'GET',
       success(res) {
         // console.log(res.data.data.records);
@@ -175,8 +177,8 @@ Page({
   onShow(options) {
     var that = this;
     wx.request({
-      // url: 'http://localhost:8082/orders/orders/' + app.globalData.openId + '?state=' + that.data.TabCur,
-      url: 'http://localhost:8082/orders/orders/222' + '?state=' + that.data.TabCur,
+      url: 'http://localhost:8082/orders/orders/' + app.globalData.openid + '?state=' + that.data.TabCur,
+      // url: 'http://localhost:8082/orders/orders/222' + '?state=' + that.data.TabCur,
       method: 'GET',
       success(res) {
         // console.log(res.data.data.records);

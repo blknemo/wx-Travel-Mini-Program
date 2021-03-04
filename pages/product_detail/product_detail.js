@@ -121,6 +121,19 @@ Page({
         that.setData({
           detail: res.data.data
         })
+        // 价格
+        wx.setStorageSync('adultPrice', res.data.data.adultPrice);
+        wx.setStorageSync('childPrice', res.data.data.childPrice);
+        wx.setStorageSync('otherExpense', res.data.data.otherExpense)
+
+        // 商品id
+        wx.setStorageSync('goodsId', res.data.data.id)
+
+        // 供应商id
+        wx.setStorageSync('supplierId', res.data.data.supplierId)
+
+
+        console.log(res.data.data);
         console.log("goodsId: " + res.data.data.id)
         var userId = app.globalData.openid
         console.log(userId)
@@ -188,6 +201,10 @@ Page({
   },
 
   toDateSelect() {
+    console.log(this.data.detail.earliestDate);
+    // 放入缓存
+    wx.setStorageSync('earliestDate', this.data.detail.earliestDate)
+    wx.setStorageSync('latestDate', this.data.detail.latestDate)
     wx.navigateTo({
       url: '/pages/date_select/date_select'
     })

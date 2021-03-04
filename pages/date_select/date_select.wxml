@@ -7,13 +7,22 @@
   <view class="flex align-center justify-between btn solid-bottom padding-lr">
     <view>成人<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
     <view class="flex align-center">
-      <text class="text-price text-bold text-lg text-orange">{{adult_price}}</text>
+      <text class="text-price text-bold text-lg text-orange">{{adultPrice}}</text>
       <image class="icon margin-left" src="/public/imgs/add.png"></image>
       <text class="margin-lr-sm">{{adult_num}}</text>
       <image class="icon" src="/public/imgs/cut.png"></image>
     </view>
   </view>
   <view class="flex align-center justify-between btn solid-bottom padding-lr">
+    <view>儿童<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
+    <view class="flex align-center">
+      <text class="text-price text-bold text-lg text-orange">{{childPrice}}</text>
+      <image class="icon margin-left" src="/public/imgs/add.png"></image>
+      <text class="margin-lr-sm">{{little_child_num}}</text>
+      <image class="icon" src="/public/imgs/cut.png"></image>
+    </view>
+  </view>
+  <!-- <view class="flex align-center justify-between btn solid-bottom padding-lr">
     <view>大童<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
     <view class="flex align-center">
       <text class="text-price text-bold text-lg text-orange">{{child_price}}</text>
@@ -30,11 +39,11 @@
       <text class="margin-lr-sm">{{child_num}}</text>
       <image class="icon" src="/public/imgs/cut.png"></image>
     </view>
-  </view>
+  </view> -->
   <view class="flex align-center justify-between btn solid-bottom padding-lr">
     <view>单房差<text class="icon-questionfill margin-left-sm" catchtap="showModal" data-target="Image"></text></view>
     <view class="flex align-center">
-      <text class="text-price text-bold text-lg text-orange">{{child_price}}</text>
+      <text class="text-price text-bold text-lg text-orange">{{otherExpense}}</text>
       <image class="icon margin-left" src="/public/imgs/add.png"></image>
       <text class="margin-lr-sm">{{little_child_num}}</text>
       <image class="icon" src="/public/imgs/cut.png"></image>

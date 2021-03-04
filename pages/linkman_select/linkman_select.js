@@ -1,3 +1,4 @@
+const app = getApp();
 
 Page({
 
@@ -20,6 +21,30 @@ Page({
   },
 
   onLoad: function (options) {
+    
+  },
+
+  onShow: function (options) {
+    var that = this
+    var linkMan = wx.getStorageSync('linkMan')
+    var passenger = wx.getStorageSync('passenger')
+    console.log("select页面");
+    console.log(linkMan);
+    that.setData({
+      linkMan: linkMan,
+      passenger: passenger
+    })
+
+
+    var adultPrice = wx.getStorageSync('adultPrice');
+    var childPrice = wx.getStorageSync('childPrice');
+    var otherExpense = wx.getStorageSync('otherExpense')
+
+    this.setData({
+      adultPrice,
+      childPrice,
+      otherExpense
+    })
 
   },
 
@@ -34,9 +59,61 @@ Page({
     })
   },
 
-  toLinkManSelect(){
+  toLinkManSelect() {
     wx.navigateTo({
-      url: '/pages/linkman_choose/linkman_choose',
+      url: '/pages/linkman_choose/linkman_choose?cur_tab=1',
+    })
+  },
+
+  toPassengerSelect() {
+    wx.redirectTo({
+      url: '/pages/linkman_choose/linkman_choose?cur_tab=2',
+    })
+  },
+
+  handleChildNumInput(e) {
+    console.log(e.detail.value);
+    this.setData({
+      childNum: e.detail.value
+    })
+  },
+
+  handleAdultNumInput(e) {
+    console.log(e.detail.value);
+    this.setData({
+      adultNum: e.detail.value
+    })
+  },
+
+  submit() {
+    
+    var that = this;
+
+
+
+    var totalPrice = that.data.adultNum * wx.getStorageSync('adultPrice') + that.data.childNum * wx.getStorageSync('childPrice') + wx.getStorageSync('otherExpense')
+
+    that.setData({
+      order: {
+        adultSum: that.data.adultNum,
+        childSum: that.data.childNum,
+        contactId: that.data.linkMan.id,
+        startDate: wx.getStorageSync('startDate'),
+        state: 1, // 待付款
+        totalPrice: totalPrice
+      }
+    })
+
+    console.log(that.data.order);
+    // console.log(app.globalData.openid);
+    // console.log(wx.getStorageSync('goodsId'));
+    // console.log(wx.getStorageSync('supplierId'));
+
+
+    wx.request({
+      url: 'http://localhost:8082/orders/order/' + app.globalData.openid +'/' + wx.getStorageSync('goodsId') + '/' + wx.getStorageSync('supplierId'),
+      method: 'POST',
+      data: that.data.order
     })
   }
 

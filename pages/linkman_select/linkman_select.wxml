@@ -17,20 +17,35 @@
   </view>
   <view class="flex align-center justify-between btn solid-bottom">
     <text>姓名<text class="text-red">*</text></text>
-    <input class="form-input"  placeholder="必填，用于供应商与你联系"></input>
+    <input class="form-input" placeholder="必填，用于供应商与你联系" value="{{linkMan.name}}"></input>
   </view>
   <view class="flex align-center justify-between btn">
     <text>手机号<text class="text-red">*</text></text>
-    <input class="form-input" placeholder="必填，用于供应商与你联系"></input>
+    <input class="form-input" placeholder="必填，用于供应商与你联系" value="{{linkMan.phone}}"></input>
   </view>
 </view>
 
 <view class="bg-white padding-lr text-black margin-top-sm">
-  <view class="flex align-center justify-between btn solid-bottom">
+  <!-- 这里如果完整实现太麻烦了，先简要实现 -->
+  <!-- <view class="flex align-center justify-between btn solid-bottom">
     <text>出行人</text>
-    <button class="cu-btn sm line-theme" style="font-size:24rpx" catchtap="toLinkManSelect">选择出行人</button>
+    <button class="cu-btn sm line-theme" style="font-size:24rpx" catchtap="toPassengerSelect">选择出行人</button>
   </view>
   <view class="flex align-center justify-between btn solid-bottom">
+    <text>旅客<text class="text-red">*</text></text>
+    <input class="form-input" placeholder="请务必保证所填项与出游证件保持一致" value="{{passenger.name}}"></input>
+  </view> -->
+  <view class="flex align-center justify-between btn solid-bottom">
+    <text>成人旅客人数<text class="text-red">*</text></text>
+    <input class="form-input" placeholder="请务必保证所填项与实际人数保持一致" bindinput="handleAdultNumInput"></input>
+  </view>
+  <view class="flex align-center justify-between btn solid-bottom">
+    <text>儿童旅客人数<text class="text-red">*</text></text>
+    <input class="form-input" placeholder="请务必保证所填项与实际人数保持一致" bindinput="handleChildNumInput"></input>
+  </view>
+  
+
+  <!-- <view class="flex align-center justify-between btn solid-bottom">
     <text>成人1<text class="text-red">*</text></text>
     <input class="form-input" placeholder="请务必保证所填项与出游证件保持一致"></input>
   </view>
@@ -41,7 +56,7 @@
   <view class="flex align-center justify-between btn">
     <text>小童1<text class="text-red">*</text></text>
     <input class="form-input" placeholder="请务必保证所填项与出游证件保持一致"></input>
-  </view>
+  </view> -->
 </view>
 
 <view class="padding-lr margin-top flex">
@@ -55,11 +70,11 @@
 <view class="bto_bar bg-white flex align-center justify-between padding-sm">
   <view>
     总价
-    <text class="text-price text-orange text-lg text-bold">3460</text>
-    <text class="margin-left text-theme" style="border-bottom:1rpx solid #7377FF"
-    bindtap="showModal" data-target="Image">费用明细</text>
+    <text class="text-price text-orange text-lg text-bold">{{adultNum * adultPrice + childNum * childPrice + otherExpense}}</text>
+    <!-- <text class="margin-left text-theme" style="border-bottom:1rpx solid #7377FF"
+    bindtap="showModal" data-target="Image">费用明细</text> -->
   </view>
-  <button class="cu-btn round bg-orange" style="height:78rpx;width:360rpx">立即预订 </button>
+  <button class="cu-btn round bg-orange" style="height:78rpx;width:360rpx" bindtap="submit">立即预订 </button>
 </view>
 
 <view class="cu-modal {{modalName=='Image'?'show':''}}" bindtap='hideModal' 

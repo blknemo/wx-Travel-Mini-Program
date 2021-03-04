@@ -1,4 +1,6 @@
 <image class="logo" src="/public/imgs/logo.png"></image>
+<!-- <image class="logo" src="https://laizheli.oss-cn-hangzhou.aliyuncs.com/user/test.jpg?Expires=1614654950&OSSAccessKeyId=TMP.3KicXRgWa6RNsTb4FjvrxKPSiE5kjeq7o9zKStQJAtLTfGU8tYgYJ1XHZq79fS1Uyxx7xuCW3FFPxY5QSXmxTKXyyUhC5v&Signature=v4AspzR5JzAqepH2txvZ%2BOPiKiU%3D"></image> -->
+
 <view class="header padding-tb">
   <block wx:for="{{modules}}" wx:key="{{index}}">
     <navigator url="{{item.url}}" hover-class="none">
