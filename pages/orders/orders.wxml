@@ -43,7 +43,7 @@
       </view>
 
       <view class="flex justify-end text-lg padding-lr-sm ">
-        <text class="text-sm ">共2人助力已减：</text>
+        <text class="text-sm ">共{{item.helpNum}}人助力已减：</text>
         <text class="text-price text-red ">{{item.discount}}</text>
         <text class="text-sm ">，优惠后合计：</text>
         <text class="text-price text-red ">{{item.totalPrice - item.discount}}</text>

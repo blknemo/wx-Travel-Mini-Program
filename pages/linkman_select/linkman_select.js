@@ -113,8 +113,15 @@ Page({
     wx.request({
       url: 'http://localhost:8082/orders/order/' + app.globalData.openid +'/' + wx.getStorageSync('goodsId') + '/' + wx.getStorageSync('supplierId'),
       method: 'POST',
-      data: that.data.order
+      data: that.data.order,
+      success() {
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      }
     })
+
+    
   }
 
 })

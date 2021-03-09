@@ -118,7 +118,7 @@ Page({
                     name: app.globalData.userInfo.nickName,
                     iconUrl: app.globalData.userInfo.avatarUrl
                   },
-                  /*
+                  
                   success() {
                     // 登录成功之后填写登录日志记录表login_log
                     //os, browser, system
@@ -155,7 +155,7 @@ Page({
                       }
                     });
                   }
-                  */
+                  
                 });
 
               }
