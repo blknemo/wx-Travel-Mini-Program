@@ -12,48 +12,53 @@ Page({
       badge: 0,
       name: '常用信息',
       url: "/pages/link_info/link_info"
-    }, {
+    }, 
+    {
       icon: 'discoverfill',
       color: 'orange',
       badge: 0,
       name: '我的杂谈',
       url: "/pages/my_travel_notes/my_travel_notes"
-    }, {
+    }, 
+    {
       icon: 'appreciatefill',
       color: 'yellow',
       badge: 0,
       name: '我的点评',
       url: "/pages/my_evas/my_evas"
-    }, {
+    }, 
+    {
       icon: 'noticefill',
       color: 'olive',
       badge: 0,
       name: '行程通知',
       url: "/pages/notice_msg/notice_msg"
-    }, {
-      icon: 'moneybagfill',
-      color: 'mauve',
-      badge: 0,
-      name: '我的收入',
-      url: "/pages/my_income/my_income"
-    }, {
-      icon: 'formfill',
-      color: 'cyan',
-      badge: 0,
-      name: '合同发票',
-      url: "/pages/invoice/invoice"
-    }, {
-      icon: 'writefill ',
-      color: 'blue',
-      badge: 0,
-      name: '意见反馈',
-      url: "/pages/advice/advice"
-    }, {
-      icon: 'servicefill',
-      color: 'purple',
-      badge: 0,
-      name: '联系客服'
-    }, ],
+    }, 
+    // {
+    //   icon: 'moneybagfill',
+    //   color: 'mauve',
+    //   badge: 0,
+    //   name: '我的收入',
+    //   url: "/pages/my_income/my_income"
+    // }, {
+    //   icon: 'formfill',
+    //   color: 'cyan',
+    //   badge: 0,
+    //   name: '合同发票',
+    //   url: "/pages/invoice/invoice"
+    // }, {
+    //   icon: 'writefill ',
+    //   color: 'blue',
+    //   badge: 0,
+    //   name: '意见反馈',
+    //   url: "/pages/advice/advice"
+    // }, {
+    //   icon: 'servicefill',
+    //   color: 'purple',
+    //   badge: 0,
+    //   name: '联系客服'
+    // }, 
+  ],
     // gridCol:4,
     gridCol: 2,
   },

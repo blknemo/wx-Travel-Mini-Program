@@ -72,6 +72,51 @@ Page({
     }
   },
 
+  onShow: function (options) {
+    var that = this;
+
+    // 如果有跳转参数，那么就听从跳转参数的支配
+    if (options != null) {
+      console.log(options.cur_tab);
+      that.setData({
+        cur_tab: options.cur_tab
+      })
+    }
+
+    if (that.data.cur_tab == 1) {
+      // 如果是联系人界面
+      console.log("联系人");
+      wx.request({
+        url: 'http://localhost:8082/contact/all/' + app.globalData.openid,
+        // url: 'http://localhost:8082/contact/all/' + '111',
+        method: 'GET',
+        success(res) {
+          that.setData({
+            linkManList: res.data.data
+          });
+          // console.log(res.data);
+          // console.log(that.data.linkManList);
+          // console.log(that.data.linkManList.length);
+          
+        }
+      })
+    } else {
+      // 如果是旅客界面
+      console.log("旅客");
+      wx.request({
+        url: 'http://localhost:8082/passenger/all/' + app.globalData.openid,
+        // url: 'http://localhost:8082/passenger/all/' + '111',
+        method: 'GET',
+        success(res) {
+          that.setData({
+            passengerList: res.data.data
+          });
+          console.log(that.data.passengerList);
+        }
+      })
+    }
+  },
+
   //切换tab
   switchTab(e) {
     var that = this;

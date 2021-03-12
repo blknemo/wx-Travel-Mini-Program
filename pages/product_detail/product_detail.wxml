@@ -1,15 +1,16 @@
 <view class="img_box pr">
-  <swiper class="square-dot" circular="true" bindchange="swiperChange" autoplay="true" interval="5000" duration="500"
-    style="height:340rpx">
-    <swiper-item wx:for="{{details.imgs}}" wx:key>
+  <!-- <swiper class="square-dot" circular="true" bindchange="swiperChange" autoplay="true" interval="5000" duration="500"
+    style="height:340rpx"> -->
+    <!-- <swiper-item wx:for="{{details.imgs}}" wx:key>
       <image src="{{item}}" mode='aspectFill' style="width:100%"></image>
-    </swiper-item>
-  </swiper>
+    </swiper-item> -->
+      <image src="{{detail.coverImageUrl}}" mode='aspectFill' style="width:100%;height:150px"></image>
+  <!-- </swiper> -->
   <view class="text-white text-sm pro_number">编号 {{detail.id}}</view>
-  <view class="text-white text-sm dots">
+  <!-- <view class="text-white text-sm dots">
     {{cur_img_index + 1}}/{{details.imgs.length}}
     <text class="icon-pic"></text>
-  </view>
+  </view> -->
 </view>
 
 <view class="bg-white padding-sm">

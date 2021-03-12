@@ -23,8 +23,8 @@
   </view> -->
   <view class="item radius bg-white margin-bottom-sm" wx:for="{{datas}}" >
     <view class="pr" data-id="{{item.id}}" catchtap="viewDetail">
-      <!-- <image class="avatar" src="{{item.coverImageUrl}}"></image> -->
-      <image class="avatar" src="/public/imgs/test.jpg"></image>
+      <image class="avatar" src="{{item.coverImageUrl}}"></image>
+      <!-- <image class="avatar" src="/public/imgs/test.jpg"></image> -->
       <view class="des text-sm flex padding-lr ">
         <view class="df">
           <view class="provider right_xian text-lg" style="max-width:50%">

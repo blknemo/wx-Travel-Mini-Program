@@ -535,13 +535,13 @@ Page({
               // wx.navigateTo({
               //   url: '/pages/link_info/link_info?cur_tab=1',
               // })
-              // wx.navigateBack({
-              //   delta: 1,
-              // })
-              // 这里能用跳转，得用重定向
-              wx.redirectTo({
-                url: '/pages/link_info/link_info?cur_tab=1',
+              wx.navigateBack({
+                delta: 1,
               })
+              // 这里能用跳转，得用重定向
+              // wx.redirectTo({
+              //   url: '/pages/link_info/link_info?cur_tab=1',
+              // })
             }
           })
         }
@@ -595,13 +595,13 @@ Page({
               // wx.navigateTo({
               //   url: '/pages/link_info/link_info?cur_tab=0',
               // })
-              // wx.navigateBack({
-              //   delta: 1,
-              // })
-              // that.onLoad();
-              wx.redirectTo({
-                url: '/pages/link_info/link_info?cur_tab=0',
+              wx.navigateBack({
+                delta: 1,
               })
+              // that.onLoad();
+              // wx.redirectTo({
+              //   url: '/pages/link_info/link_info?cur_tab=0',
+              // })
             }
           })
 
@@ -615,13 +615,13 @@ Page({
               // wx.navigateTo({
               //   url: '/pages/link_info/link_info?cur_tab=1',
               // })
-              // wx.navigateBack({
-              //   delta: 1,
-              // })
-              // 这里能用跳转，得用重定向
-              wx.redirectTo({
-                url: '/pages/link_info/link_info?cur_tab=0',
+              wx.navigateBack({
+                delta: 1,
               })
+              // 这里能用跳转，得用重定向
+              // wx.redirectTo({
+              //   url: '/pages/link_info/link_info?cur_tab=0',
+              // })
             }
           })
         }

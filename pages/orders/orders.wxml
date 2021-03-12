@@ -5,7 +5,7 @@
 </scroll-view>
 
 <view class="padding-lr-sm margin-top">
-  <view wx:for="{{orders}}" hidden="{{!(item.state == TabCur) && TabCur != 0}}" bindtap="toOrderInfo" data-id="{{item.id}}">
+  <view wx:for="{{orders}}" hidden="{{!(item.state == TabCur) && TabCur != 0}}">
     <view class="bg-white text-red margin-bottom-sm padding-tb padding-left-xs" wx:if="{{item.state == 2 && TabCur != 0}}">友情提示：待接订单商家将在工作时间2小时内接单</view>
     <view class="flex flex-direction bg-white margin-bottom-sm radius" >
       <view class="flex align-center justify-between padding-lr-sm padding-top-sm">
@@ -18,7 +18,7 @@
         <text class="text-red text-sm">{{tools.showStateName(item.state)}}</text>
       </view>
 
-      <view class="flex padding-sm">
+      <view class="flex padding-sm"  bindtap="toOrderInfo" data-id="{{item.id}}">
         <!-- 商品图片，这里要从商品里面拿 -->
         <image class="avatar margin-right" src="{{item.coverImageUrl}}"></image>
         <!-- 目的地 -->
@@ -56,9 +56,11 @@
       
         <block wx:if="{{item.state == 1}}">
           <button class="cu-btn line-red round df margin-right" bindtap="helpOrder" data-id="{{item.id}}">好友助力</button>
-        </block>
-        <block wx:if="{{item.state == 1 || item.state == 2}}">
+          <button class="cu-btn line-red round df margin-right" bindtap="pay" data-id="{{item.id}}">付款</button>
           <button class="cu-btn line-red round df" bindtap="cancelOrder" data-id="{{item.id}}">取消订单</button>
+        </block>
+        <block wx:if="{{item.state == 2}}">
+          <button class="cu-btn line-red round df" bindtap="refundOrder" data-id="{{item.id}}">申请退款</button>
         </block>
         <block wx:elif="{{item.state == 3}}">
           <button class="cu-btn line-red round df" bindtap="refundOrder" data-id="{{item.id}}">申请退款</button>
@@ -72,12 +74,12 @@
         <block wx:elif="{{item.state == 5}}">
           <button class="cu-btn line-red round df" bindtap="delOrder" data-id="{{item.id}}">删除订单</button>
         </block>
-        <block wx:elif="{{item.state == 6}}">
+        <!-- <block wx:elif="{{item.state == 6}}">
           <button class="cu-btn line-red round df">查看进度</button>
         </block>
         <block wx:else>
           <button class="cu-btn line-red round df">查看进度</button>
-        </block>
+        </block> -->
 
       </view>
 

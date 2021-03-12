@@ -288,6 +288,17 @@ Page({
     wx.navigateTo({
       url: '/pages/order_info/order_info?id=' + e.currentTarget.dataset.id
     })
+  },
+
+  pay(e) {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8082/orders/order/' + e.currentTarget.dataset.id + '/2',
+      method: 'PUT',
+      success() {
+        that.onLoad(that.data.options);
+      }
+    })
   }
   
 })
