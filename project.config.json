@@ -1,248 +1,248 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": false,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": false,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": false,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "enableEngineNative": false,
-    "bundle": false,
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": false
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.11.0",
-  "appid": "wxd947db7bfd81dbc1",
-  "projectname": "laizheli",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "id": -1,
-          "name": "个人中心",
-          "pathName": "pages/mine/mine",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "产品列表",
-          "pathName": "pages/products/products",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "产品详情",
-          "pathName": "pages/product_detail/product_detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "产品评论",
-          "pathName": "pages/product_eva/product_eva",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "日期/人数选择",
-          "pathName": "pages/date_select/date_select",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "旅游杂谈",
-          "pathName": "pages/travel_notes/travel_notes",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 6,
-          "name": "杂谈详情",
-          "pathName": "pages/note_detail/note_detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "联系人",
-          "pathName": "pages/linkman_select/linkman_select",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "联系信息",
-          "pathName": "pages/link_info/link_info",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "新增杂谈",
-          "pathName": "pages/add_notes/add_notes",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "特惠产品列表",
-          "pathName": "pages/sp_products/sp_products",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "订单列表",
-          "pathName": "pages/orders/orders",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "收藏与足迹",
-          "pathName": "pages/collection/collection",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "合同发票",
-          "pathName": "pages/invoice/invoice",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "按订单开发票",
-          "pathName": "pages/select_order/select_order",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "开具电子发票",
-          "pathName": "pages/add_invoice/add_invoice",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的杂谈",
-          "pathName": "pages/my_travel_notes/my_travel_notes",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的评价",
-          "pathName": "pages/my_evas/my_evas",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "意见反馈",
-          "pathName": "pages/advice/advice",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "行程通知",
-          "pathName": "pages/notice_msg/notice_msg",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的收入",
-          "pathName": "pages/my_income/my_income",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "vip成员",
-          "pathName": "pages/vip_member/vip_member",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "订单评价",
-          "pathName": "pages/order_eva/order_eva",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "选择联系人",
-          "pathName": "pages/linkman_choose/linkman_choose",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "推荐有礼",
-          "pathName": "pages/rec/rec",
-          "scene": null
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": false,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": false,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"bundle": false,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"compileHotReLoad": false,
+		"useMultiFrameRuntime": true,
+		"useApiHook": true,
+		"useApiHostProcess": false,
+		"enableEngineNative": false,
+		"useIsolateContext": true,
+		"userConfirmedBundleSwitch": false,
+		"packNpmManually": false,
+		"packNpmRelationList": [],
+		"minifyWXSS": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.0",
+	"appid": "wxd947db7bfd81dbc1",
+	"projectname": "laizheli",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"list": []
+		},
+		"conversation": {
+			"list": []
+		},
+		"plugin": {
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"list": []
+		},
+		"miniprogram": {
+			"list": [
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "产品列表",
+					"pathName": "pages/products/products",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "产品详情",
+					"pathName": "pages/product_detail/product_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "产品评论",
+					"pathName": "pages/product_eva/product_eva",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "日期/人数选择",
+					"pathName": "pages/date_select/date_select",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "旅游杂谈",
+					"pathName": "pages/travel_notes/travel_notes",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "杂谈详情",
+					"pathName": "pages/note_detail/note_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联系人",
+					"pathName": "pages/linkman_select/linkman_select",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联系信息",
+					"pathName": "pages/link_info/link_info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增杂谈",
+					"pathName": "pages/add_notes/add_notes",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "特惠产品列表",
+					"pathName": "pages/sp_products/sp_products",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/orders/orders",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏与足迹",
+					"pathName": "pages/collection/collection",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "合同发票",
+					"pathName": "pages/invoice/invoice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "按订单开发票",
+					"pathName": "pages/select_order/select_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "开具电子发票",
+					"pathName": "pages/add_invoice/add_invoice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的杂谈",
+					"pathName": "pages/my_travel_notes/my_travel_notes",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的评价",
+					"pathName": "pages/my_evas/my_evas",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/advice/advice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "行程通知",
+					"pathName": "pages/notice_msg/notice_msg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收入",
+					"pathName": "pages/my_income/my_income",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "vip成员",
+					"pathName": "pages/vip_member/vip_member",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单评价",
+					"pathName": "pages/order_eva/order_eva",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择联系人",
+					"pathName": "pages/linkman_choose/linkman_choose",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推荐有礼",
+					"pathName": "pages/rec/rec",
+					"scene": null
+				}
+			]
+		}
+	}
 }

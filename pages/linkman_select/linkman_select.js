@@ -38,12 +38,20 @@ Page({
 
     var adultPrice = wx.getStorageSync('adultPrice');
     var childPrice = wx.getStorageSync('childPrice');
-    var otherExpense = wx.getStorageSync('otherExpense')
+    var otherExpense = wx.getStorageSync('otherExpense');
+    var detail = wx.getStorageSync('detail');
+
+    console.log("输出！！！！");
+    
+    console.log(detail);
+    
+
 
     this.setData({
       adultPrice,
       childPrice,
-      otherExpense
+      otherExpense,
+      detail
     })
 
   },

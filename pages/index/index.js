@@ -6,13 +6,13 @@ Page({
         name: "周边游",
         icon: "/public/imgs/around.png",
         bg: "bg-gradual-red",
-        url: "/pages/products/products?type=1"
+        url: "/pages/products/products?type=2"
       },
       {
         name: "国内游",
         icon: "/public/imgs/national.png",
         bg: "bg-gradual-orange",
-        url: "/pages/products/products?type=2"
+        url: "/pages/products/products?type=1"
       },
       {
         name: "出境游",

@@ -131,6 +131,7 @@ Page({
 
         // 供应商id
         wx.setStorageSync('supplierId', res.data.data.supplierId)
+        wx.setStorageSync('detail', res.data.data)
 
 
         console.log(res.data.data);

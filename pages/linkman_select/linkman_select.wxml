@@ -1,11 +1,11 @@
 <view class="bg-white padding flex align-center text-black">
-  <image class="cu-avatar xl fs radius margin-right-sm" src="{{pro_detail.avatar}}"></image>
+  <image class="cu-avatar xl fs radius margin-right-sm" src="{{detail.coverImageUrl}}"></image>
   <view class="flex flex-direction">
-    <view class="margin-bottom-xs">{{pro_detail.title}}</view>
+    <view class="margin-bottom-xs">{{detail.name}}</view>
     <view class="text-gray">
-      <text class="">{{pro_detail.start_time}}</text>
-      <text class="margin-left">{{pro_detail.start_city}}出发</text>
-      <text class="margin-left">{{pro_detail.trip_days}}</text>
+      <text class="">{{detail.earliestDate}}</text>
+      <text class="margin-left">{{detail.beginPlace}}出发</text>
+      <text class="margin-left">{{detail.days}}天</text>
     </view>
   </view>
 </view>

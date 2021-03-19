@@ -24,7 +24,7 @@
         <!-- 目的地 -->
         <view class=" flex flex-direction justify-between" style="width:calc(100% - 140rpx)">
           <!-- 商品名称，这里要从商品里面拿 -->
-          <view class="text-init text-df text-cut">{{item.name}}三亚</view>
+          <view class="text-init text-df text-cut">{{item.name}}</view>
           <view class="text-gray text-sm">
             <!-- 商品天数，这里要从商品里面拿 -->
             <text class="right_xian">{{item.days}}天</text>
