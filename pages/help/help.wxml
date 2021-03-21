@@ -30,24 +30,39 @@
         <view class="text-gray text-sm">下单时间：{{order.createTime}}</view>
       </view>
     </view>
-
-
-
-  </view>
-  <view class="flex text-lg padding-lr-sm ">
-    <text class="text-lg">共{{helpNum}}人助力已减：</text>
-    <text class="text-price text-red text-lg">{{allDiscount}}</text>
   </view>
 
   <view>
-    <!-- 单人助力金额 -->
-    <!-- <text class="text-lg">您为好友省下了：</text>
-    <text class="text-price text-red text-lg">{{discount}}</text> -->
-    <text class="text-lg">{{message}}</text>
+    <view>
+      <view class="text-lg text-center text-red text-bold">助力规则</view> 
+      <view>1、邀请好友助力，达到助力人数，即可享免单权利；</view>
+
+      <view>2、每个新用户仅可助力一次。同一设备、为信号视为同一用户；</view>
+
+      <view>3、若发现用户存在刷单、虚假用户助力等违规行为，平台有权利判定助力失败；</view>
+
+      <view>4、邀请到足够好友帮你助力成功之后，可前往我的订单查看发货与物流详情；</view>
+
+      <view>5、对物流、商品有疑问或者需要修改收获地址请联系商家客服处理；</view>
+
+      <view>6、来这里可在法律法规允许范围内本次活动规则解释并做适当修改；</view>
+    </view>
+
+    <view class="flex text-lg padding-lr-sm ">
+      <text class="text-lg">共<text class="text-red">{{helpNum}}</text>人助力已减：</text>
+      <text class="text-price text-red text-lg">{{allDiscount}}</text>
+    </view>
+  
+    <view>
+      <!-- 单人助力金额 -->
+      <!-- <text class="text-lg">您为好友省下了：</text>
+      <text class="text-price text-red text-lg">{{discount}}</text> -->
+      <text class="text-lg">{{message}}</text>
+    </view>
+    <text>\n\n\n\n</text>
+    <view class="text-lg">赶快帮好友助力吧！</view>
+    <button class="save_btn" bindtap="handleHelp">助力好友</button>
   </view>
-  <text>\n\n\n\n</text>
-  <view class="text-lg">赶快帮好友助力吧！</view>
-  <button class="save_btn" bindtap="handleHelp">助力好友</button>>
 
 
 </view>
