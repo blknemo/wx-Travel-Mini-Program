@@ -44,3 +44,15 @@ page {
 .text-lg {
   font-size: 60rpx;
 }
+
+
+.p_item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20rpx;
+  border-radius: 6rpx;
+  background: white;
+  font-size: 28rpx;
+}

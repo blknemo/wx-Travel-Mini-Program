@@ -33,7 +33,7 @@ App({
   },
   globalData: {
     userInfo: {},
-    openid: '123',
+    openid: '',
     loginInfo: {
       userId: '',
       ip: '',

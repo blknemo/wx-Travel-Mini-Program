@@ -33,7 +33,7 @@
   </view>
 
   <view>
-    <view>
+    <!-- <view>
       <view class="text-lg text-center text-red text-bold">助力规则</view> 
       <view>1、邀请好友助力，达到助力人数，即可享免单权利；</view>
 
@@ -45,7 +45,33 @@
 
       <view>5、对物流、商品有疑问或者需要修改收获地址请联系商家客服处理；</view>
 
-      <view>6、来这里可在法律法规允许范围内本次活动规则解释并做适当修改；</view>
+      <view>6、来这里平台可在法律法规允许范围内本次活动规则解释并做适当修改；</view>
+    </view> -->
+
+    <!-- <view class="passengerList">
+      <view wx:if="{{linkManList.length>0}}">
+        <view class="p_item" wx:for="{{linkManList}}" wx:key="{{item.id}}">
+          <navigator url="/pages/add_passenger/add_passenger?cur_tab=2&type=2&id={{item.id}}" hover-class="none">
+            <view class="p_item_top">
+              <text class="name">{{item.name}}</text>
+            </view>
+            <text class="mobile">手机号码{{num.mobile_hide(item.phone)}}</text>
+          </navigator>
+        </view>
+      </view>
+    </view> -->
+
+    <view class="passengerList">
+      <view wx:if="{{helpMan.length>0}}">
+        <view class="p_item" wx:for="{{helpMan}}" wx:key="{{item.id}}">
+            <view class="p_item_top">
+              <!-- <text class="name">友人{{item.userId}}</text> -->
+              <text class="name">友人{{index}}</text>
+            </view>
+            <text class="mobile">砍价{{item.discount}}</text>
+            
+        </view>
+      </view>
     </view>
 
     <view class="flex text-lg padding-lr-sm ">
@@ -59,7 +85,6 @@
       <text class="text-price text-red text-lg">{{discount}}</text> -->
       <text class="text-lg">{{message}}</text>
     </view>
-    <text>\n\n\n\n</text>
     <view class="text-lg">赶快帮好友助力吧！</view>
     <button class="save_btn" bindtap="handleHelp">助力好友</button>
   </view>

@@ -146,6 +146,26 @@ Page({
       },
 
     ],
+    linkManList: [
+      {
+        id: 1,
+        name: "阿甘1",
+        mobile: "13476818222",
+        is_init: true
+      },
+      {
+        id: 1,
+        name: "阿甘1",
+        mobile: "13476818222",
+        is_init: true
+      },
+      {
+        id: 1,
+        name: "阿甘1",
+        mobile: "13476818222",
+        is_init: true
+      }
+    ]
   },
 
   /**
@@ -268,6 +288,21 @@ Page({
           helpNum: res.data.data.helpNum
         })
         console.log(that.data.allDiscount);
+
+        // 通过订单id获取助力的用户及其折扣
+        wx.request({
+          // url: 'http://localhost:8082/help/help/' + options.orderId,
+          url: 'http://localhost:8082/help/help/7',
+          method: 'GET',
+          success(res) {
+            console.log(res.data.data);
+            that.setData({
+              helpMan: res.data.data
+            })
+          }
+        })
+
+        // 通过用户id获取用户信息
       }
     })
 
